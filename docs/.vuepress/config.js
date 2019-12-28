@@ -26,8 +26,16 @@ module.exports = {
           title :'JS',
           collapsable : true ,
           children : [
-            'foo/one',
-            'foo/two'
+            'js/home',
+            'js/two'
+          ],
+          sidebarDepth : 0
+        },
+        {
+          title :'REACT',
+          collapsable : true ,
+          children : [
+         
           ],
           sidebarDepth : 0
         }
