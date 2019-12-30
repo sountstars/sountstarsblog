@@ -35,6 +35,15 @@ module.exports = {
           title :'REACT',
           collapsable : true ,
           children : [
+            'react/lifecycle',  //生命周期
+            
+          ],
+          sidebarDepth : 0
+        },
+        {
+          title :'webpack',
+          collapsable : true ,
+          children : [
          
           ],
           sidebarDepth : 0
