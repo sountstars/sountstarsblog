@@ -36,7 +36,7 @@ module.exports = {
           collapsable : true ,
           children : [
             'react/lifecycle',  //生命周期
-            
+            'react/hooklifecycle',  //hooks生命周期            
           ],
           sidebarDepth : 0
         },
@@ -45,6 +45,14 @@ module.exports = {
           collapsable : true ,
           children : [
          
+          ],
+          sidebarDepth : 0
+        },
+        {
+          title :'git',
+          collapsable : true ,
+          children : [
+            'git/command'
           ],
           sidebarDepth : 0
         }
