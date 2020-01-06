@@ -26,8 +26,10 @@ module.exports = {
           title :'JS',
           collapsable : true ,
           children : [
-            'js/home',
-            'js/two'
+            // 'js/home',
+            'js/two',
+            'js/arr',
+            'js/string'
           ],
           sidebarDepth : 0
         },
@@ -36,7 +38,8 @@ module.exports = {
           collapsable : true ,
           children : [
             'react/lifecycle',  //生命周期
-            'react/hooklifecycle',  //hooks生命周期            
+            'react/hooklifecycle',  //hooks生命周期 
+                     
           ],
           sidebarDepth : 0
         },
