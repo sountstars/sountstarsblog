@@ -20,7 +20,6 @@ module.exports = {
       ],
       // sidebar: 'auto', // 侧边栏配置
       // sidebarDepth: 2, // 深度  最大深度2
-
       sidebar : [
         {
           title :'JS',
@@ -28,8 +27,9 @@ module.exports = {
           children : [
             // 'js/home',
             'js/two',
+            'js/regular',
             'js/arr',
-            'js/string'
+            'js/string',
           ],
           sidebarDepth : 0
         },

@@ -1,0 +1,6 @@
+# 操作详情
+readme.txt
+# node_modules
+./node_modules/*
+# dist 打包文件
+./docs/.vuepress/dist
