@@ -47,7 +47,7 @@ module.exports = {
           title :'webpack',
           collapsable : true ,
           children : [
-         
+            'webpack/summary',  //summary总结            
           ],
           sidebarDepth : 0
         },

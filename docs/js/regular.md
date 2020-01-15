@@ -31,4 +31,7 @@ exec [ɪɡˈzek]
 test[test]
 /规则/.test(字符串)
 检测正则是否匹配字符串，成立就返回true，否则false
+
+
+
 ```
