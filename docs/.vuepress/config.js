@@ -58,6 +58,14 @@ module.exports = {
             'git/command'
           ],
           sidebarDepth : 0
+        },
+        {
+          title :'Webworker',
+          collapsable : true ,
+          children : [
+            'Webworker/use'
+          ],
+          sidebarDepth : 0
         }
       ]
     }
