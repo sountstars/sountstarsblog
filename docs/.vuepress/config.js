@@ -28,6 +28,8 @@ module.exports = {
             // 'js/home',
             'js/two',
             'js/regular',
+            'js/this',            
+            'js/prototype',     
             'js/arr',
             'js/string',
           ],
