@@ -35,40 +35,40 @@ module.exports = {
           ],
           sidebarDepth : 0
         },
-        {
-          title :'REACT',
-          collapsable : true ,
-          children : [
-            'react/lifecycle',  //生命周期
-            'react/hooklifecycle',  //hooks生命周期 
+        // {
+        //   title :'REACT',
+        //   collapsable : true ,
+        //   children : [
+        //     'react/lifecycle',  //生命周期
+        //     'react/hooklifecycle',  //hooks生命周期 
                      
-          ],
-          sidebarDepth : 0
-        },
-        {
-          title :'webpack',
-          collapsable : true ,
-          children : [
-            'webpack/summary',  //summary总结            
-          ],
-          sidebarDepth : 0
-        },
-        {
-          title :'git',
-          collapsable : true ,
-          children : [
-            'git/command'
-          ],
-          sidebarDepth : 0
-        },
-        {
-          title :'Webworker',
-          collapsable : true ,
-          children : [
-            // 'Webworker/use'
-          ],
-          sidebarDepth : 0
-        }
+        //   ],
+        //   sidebarDepth : 0
+        // },
+        // {
+        //   title :'webpack',
+        //   collapsable : true ,
+        //   children : [
+        //     'webpack/summary',  //summary总结            
+        //   ],
+        //   sidebarDepth : 0
+        // },
+        // {
+        //   title :'git',
+        //   collapsable : true ,
+        //   children : [
+        //     'git/command'
+        //   ],
+        //   sidebarDepth : 0
+        // },
+        // {
+        //   title :'Webworker',
+        //   collapsable : true ,
+        //   children : [
+        //     // 'Webworker/use'
+        //   ],
+        //   sidebarDepth : 0
+        // }
       ]
     }
   };
