@@ -143,3 +143,19 @@ Server：服务器的一些相关信息
 譬如，跨域请求时，请求头部的Origin要匹配响应头部的Access-Control-Allow-Origin，否则会报跨域错误
 ```
 ![solar](../images/request.jpg) 
+
+
+## 3.浏览器内核拿到内容后，渲染步骤大致
+```js
+1. 解析HTML，构建DOM树
+2. 解析CSS，生成CSS规则树
+3. 合并DOM树和CSS规则，生成render树
+4. 布局render树（Layout/reflow），负责各元素尺寸、位置的计算
+5. 绘制render树（paint），绘制页面像素信息
+6. 浏览器会将各层的信息发送给GPU，GPU会将各层合成（composite），显示在屏幕上
+```
+![solar](../images/analysis.jpg) 
+
+```js
+
+```

@@ -74,7 +74,8 @@ module.exports = {
           collapsable : true ,
           children : [
             'communication/protocol',
-            'communication/Url_procudure'
+            'communication/cache',
+            'communication/Url_procudure',
           ],
           sidebarDepth : 0
         }
