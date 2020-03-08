@@ -43,16 +43,24 @@ module.exports = {
         //   ],
         //   sidebarDepth : 0
         // },
-        // {
-        //   title :'REACT',
-        //   collapsable : true ,
-        //   children : [
-        //     'react/lifecycle',  //生命周期
-        //     'react/hooklifecycle',  //hooks生命周期 
+        {
+          title :'Css',
+          collapsable : true ,
+          children : [
+            'css/process',
+          ],
+          sidebarDepth : 0
+        },
+        {
+          title :'REACT',
+          collapsable : true ,
+          children : [
+            'react/lifecycle',  //生命周期
+            'react/hooklifecycle',  //hooks生命周期 
                      
-        //   ],
-        //   sidebarDepth : 0
-        // },
+          ],
+          sidebarDepth : 0
+        },
         // {
         //   title :'webpack',
         //   collapsable : true ,
@@ -79,14 +87,7 @@ module.exports = {
           ],
           sidebarDepth : 0
         },
-        {
-          title :'Css',
-          collapsable : true ,
-          children : [
-            'css/process',
-          ],
-          sidebarDepth : 0
-        }
+ 
       ]
     }
   };
