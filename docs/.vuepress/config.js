@@ -32,6 +32,7 @@ module.exports = {
             'js/prototype',     
             'js/arr',
             'js/string',
+            'js/incident',
           ],
           sidebarDepth : 0
         },
