@@ -65,7 +65,7 @@ module.exports = {
         //   title :'webpack',
         //   collapsable : true ,
         //   children : [
-        //     'webpack/summary',  //summary总结            
+        //     'webpack/summary',  //            
         //   ],
         //   sidebarDepth : 0
         // },
