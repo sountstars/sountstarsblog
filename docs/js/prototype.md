@@ -128,3 +128,204 @@ function createObject(o){
 ```
 
 
+
+
+//评测题目: 无
+flexbox:
+
+
+<div class="flex">
+  <div class="column"></div>
+  <div class="column"></div>
+  <div class="column"></div>
+</div>
+
+.flex {
+  display: flex;
+  justify-content: flex-start;
+}
+.column {
+  background-color: blue;
+  width: 70px;
+  margin: auto;
+  height: 70px;
+}
+
+网页置灰效果实现
+body {
+	
+}
+
+img 
+div
+
+
+js
+
+es6/7
+  
+let const var
+let a = {};
+const b = {};
+a.a = 1;//ok
+b.b = 1;//error
+a = b; //ok
+b = a; // error
+
+setTimeout(()=>{
+  setTimeout(()=>{
+    setTimeout(()=>{
+      console.log('timeout')
+    }, 0);
+  }, 0);
+}, 1000);
+
+let result = new promise((rosole,reject)=>{
+  reject()
+})
+
+  result.then(()=>{}).then(()=>{}).then(()=>{
+  	console.log()
+  })
+  
+  
+new Promise((resolve)=>{
+  //code1
+  xhr(()=>{
+    //code2
+    resolve();
+    //code3
+  })
+  //code4
+}).then(()=>{
+  //code5
+  console.log('done')
+}).catch(()=>{
+  //
+  //error
+  console.error('error');
+})
+  
+  
+Promise.all([p1,p2,p3]).then(()=>{
+  //
+})
+  
+Promise
+
+Proxy
+
+const arr = [];
+for(; i< length;){
+  break;
+}
+
+for of / in
+
+const obj = {a: 1, b: 1}
+for(key in obj)
+  
+
+obj
+for o of obj {
+  
+}
+
+()=>{} vs function(){}
+
+const foo = ()=>{
+  console.log(this);
+}
+
+const obj = {foo};
+
+obj.foo();//obj
+
+foo();// window
+
+const context = {};
+foo //context
+  
+call apply bind
+
+function foo(){
+	console.log(this);
+}
+
+class A {
+	constructor(props){
+    	this.name = props.name
+    }
+    
+    log(){
+    	console.log('A.log');
+    }
+}
+
+class B extends A {
+	constructor(props){
+    	super({nameL:'Tom'})
+    }
+    
+    log(){
+    	console.log('B.log');
+    }
+}
+
+const b = new B();
+b.log();// B.log A.log
+
+async/await
+
+async function exec(){
+	console.log('start');
+    
+    await 1;
+    await true;
+    await null;
+    await function(){}
+    
+   
+    
+    console.log('end');
+}
+
+exec()
+
+
+setTimeout(function () {
+	console.log(1);
+}, 0)
+
+new Promise((resolve)=>{
+	console.log(4);
+	resolve()
+}).then(()=>{
+	console.log(2);
+});
+
+setTimeout(function () {
+	Promise.resolve().then(function () {
+		console.log(3);
+	})
+}, 0)
+  
+//4 1 2 3 
+  
+  
+  
+
+整数数组，找出乘积最大的三个元素
+arr arr = [10,30,5,8,-3,-6,54,...];
+
+ary = [-10, -9,0 ,1,2,3，9, 10,100, 200]
+arr = arr.sort();
+
+[-10, -9, 0 , 1,2, 3]
+
+
+
+
+
+
+
