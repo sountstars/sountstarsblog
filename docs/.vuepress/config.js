@@ -36,14 +36,6 @@ module.exports = {
         ],
         sidebarDepth: 0
       },
-      // {
-      //   title :'git',
-      //   collapsable : true ,
-      //   children : [
-      //     'git/command'
-      //   ],
-      //   sidebarDepth : 0
-      // },
       {
         title: 'Css',
         collapsable: true,
@@ -70,32 +62,6 @@ module.exports = {
         ],
         sidebarDepth: 0
       },
-      // {
-      //   title :'react',
-      //   collapsable : true ,
-      //   children : [
-      //     'react/lifecycle',  //生命周期
-      //     'react/hooklifecycle',  //hooks生命周期 
-
-      //   ],
-      //   sidebarDepth : 0
-      // },
-      // {
-      //   title :'webpack',
-      //   collapsable : true ,
-      //   children : [
-      //     'webpack/summary',  //            
-      //   ],
-      //   sidebarDepth : 0
-      // },
-      // {
-      //   title :'Webworker',
-      //   collapsable : true ,
-      //   children : [
-      //     // 'Webworker/use'
-      //   ],
-      //   sidebarDepth : 0
-      // },
       {
         title: 'communication',
         collapsable: true,
