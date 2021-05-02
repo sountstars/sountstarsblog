@@ -4,3 +4,5 @@ readme.txt
 ./node_modules/*
 # dist 打包文件
 ./docs/.vuepress/dist
+#idea
+./idea/*
