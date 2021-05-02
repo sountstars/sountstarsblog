@@ -28,6 +28,7 @@ module.exports = {
           'js/basic',
           'js/array',
           'js/string',
+          'js/object',
         ],
         sidebarDepth: 0
       },
