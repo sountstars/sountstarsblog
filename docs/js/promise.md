@@ -1,8 +1,0 @@
-# promise
-
-[[TOC]]
-
-## promise
-```js
-
-```

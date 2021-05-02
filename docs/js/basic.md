@@ -117,7 +117,7 @@ var browser = {
 
 ## 检测数据类型
 ### typeof
-```
+```js
 typeof用以获取一个变量或者表达式的类型，typeof一般只能返回如下几个结果：
 number,boolean,string,function（函数）,symbol,object（NULL,数组，对象）,undefined。
 ```

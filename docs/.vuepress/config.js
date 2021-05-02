@@ -26,17 +26,8 @@ module.exports = {
         collapsable: true,
         children: [
           'js/basic',
-          'js/arr',
+          'js/array',
           'js/string',
-          'js/incident',
-        ],
-        sidebarDepth: 0
-      },
-      {
-        title: 'Css',
-        collapsable: true,
-        children: [
-          'css/process',
         ],
         sidebarDepth: 0
       },
@@ -48,26 +39,15 @@ module.exports = {
             title: 'react',
             collapsable: true,
             children: [
-              'FE/react/basic',  
-              'FE/react/lifecycle',  
-              'FE/react/hooklifecycle',  
+              'FE/react/basic',
+              'FE/react/lifecycle',
+              'FE/react/hooklifecycle',
             ],
             sidebarDepth: 0
           },
         ],
         sidebarDepth: 0
       },
-      {
-        title: 'communication',
-        collapsable: true,
-        children: [
-          'communication/protocol',
-          'communication/cache',
-          'communication/Url_procudure',
-        ],
-        sidebarDepth: 0
-      },
-
     ]
   }
 };
