@@ -52,13 +52,12 @@ module.exports = {
             title: 'react',
             collapsable: true,
             children: [
-              'FE/react/lifecycle',  //生命周期
-              'FE/react/hooklifecycle',  //hooks生命周期 
+              'FE/react/lifecycle',  
+              'FE/react/lifecycle',  
+              'FE/react/hooklifecycle',  
             ],
             sidebarDepth: 0
           },
-          // 'react/lifecycle',  //生命周期
-          // 'react/hooklifecycle',  //hooks生命周期 
         ],
         sidebarDepth: 0
       },
