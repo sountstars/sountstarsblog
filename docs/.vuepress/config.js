@@ -25,11 +25,7 @@ module.exports = {
         title: 'JS',
         collapsable: true,
         children: [
-          // 'js/home',
-          'js/two',
-          'js/regular',
-          'js/this',
-          'js/prototype',
+          'js/basic',
           'js/arr',
           'js/string',
           'js/incident',
@@ -52,7 +48,7 @@ module.exports = {
             title: 'react',
             collapsable: true,
             children: [
-              'FE/react/lifecycle',  
+              'FE/react/basic',  
               'FE/react/lifecycle',  
               'FE/react/hooklifecycle',  
             ],
