@@ -29,6 +29,7 @@ module.exports = {
           'js/array',
           'js/string',
           'js/object',
+          'js/eventloop',
         ],
         sidebarDepth: 0
       },
