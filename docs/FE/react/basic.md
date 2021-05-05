@@ -21,3 +21,6 @@
 3.Link传参 循环进来的，此参数传参在浏览器看不见 let {data, location: {state}} = this.propsÎ
 
 
+##ref
+
+
