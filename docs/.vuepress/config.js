@@ -43,7 +43,6 @@ module.exports = {
             children: [
               'FE/react/basic',
               'FE/react/lifecycle',
-              'FE/react/hooklifecycle',
             ],
             sidebarDepth: 0
           },
