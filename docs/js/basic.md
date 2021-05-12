@@ -41,6 +41,20 @@ export const throttle = function (func, delay) {
 };
 ```
 
+## 构造函数
++  立刻在堆内存中创建一个新的对象
++  将新建的对象设置为函数中的this
++  逐个执行函数中的代码
++  将新建的对象作为返回值
+```js
+function Log(name, desc) {
+    this.name = name;
+    this.desc = desc;
+}
+let to4 = new Log('Sunsin', '今天注意啥4');
+//{name: "Sunsin", desc: "今天注意啥1"}
+```
+
 ## 导出表格
 
 ```js

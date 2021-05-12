@@ -12,14 +12,7 @@ module.exports = {
     nav: [ // 导航栏配置
       { text: '前端基础', link: '/accumulate/', target: '_self' },
       { text: 'github', link: 'https://baidu.com' },
-      //提供了一个 items 数组而不是一个单一的 link 时，它将显示为一个 下拉列表 
-      // items: [
-      //   { text: 'Chinese', link: '/language/chinese/' },
-      //   { text: 'Japanese', link: '/language/japanese/' }
-      // ]      
     ],
-    // sidebar: 'auto', // 侧边栏配置
-    // sidebarDepth: 2, // 深度  最大深度2
     sidebar: [
       {
         title: 'JS',
@@ -29,6 +22,7 @@ module.exports = {
           'js/array',
           'js/string',
           'js/object',
+          'js/character',
           'js/eventloop',
         ],
         sidebarDepth: 0
@@ -43,6 +37,7 @@ module.exports = {
             children: [
               'FE/react/basic',
               'FE/react/lifecycle',
+              'FE/react/hook',
             ],
             sidebarDepth: 0
           },
