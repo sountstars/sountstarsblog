@@ -44,6 +44,16 @@ module.exports = {
         ],
         sidebarDepth: 0
       },
+      {
+        title: 'Webpack',
+        collapsable: true,
+        children: [
+          'webpack/basic',
+          'webpack/usage',
+          'webpack/polyfill'
+        ],
+        sidebarDepth: 0
+      },
     ]
   }
 };
