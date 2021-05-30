@@ -115,20 +115,17 @@ module.exports = {
 ```
 
 ## plugins
-```js
 //常用
-HtmlWebpackPlugin 自动在html中加载打包后的js文件
-DLLPlugin/DllReferencePlugin 提高打包速度
-    DLLPlugin：创建一个只有dll的bundle
-    DllReferencePlugin： 打包生成的dll文件引用到需要的预编译依赖上来
-happyPack 多进程打包，加快打包速度。
-webpack.DefinePlugin webpack4设置mode会自动使用
-uglifyjs-webpack-plugin webpack4 mode = production默认使用
-WebpackBar
-webpack-bundle-analyzer
-clean-webpack-plugin 清除dist文件夹里会残留上次打包的文件
-
-```
++ HtmlWebpackPlugin 自动在html中加载打包后的js文件
++ DLLPlugin/DllReferencePlugin 提高打包速度
+    +    DLLPlugin：创建一个只有dll的bundle
+    +    DllReferencePlugin： 打包生成的dll文件引用到需要的预编译依赖上来
++ happyPack 多进程打包，加快打包速度。
++ webpack.DefinePlugin webpack4设置mode会自动使用
++ uglifyjs-webpack-plugin webpack4 mode = production默认使用
++ WebpackBar  打包/启动进度条
++ webpack-bundle-analyzer
++ clean-webpack-plugin 清除dist文件夹里会残留上次打包的文件
 
 ## devServer
 devServer配置基于webpack-dev-server集成的插件。该插件提供了proxy代理配置，基于express中间件 http-proxy-middleware实现，该中间件又基于node http-proxy
