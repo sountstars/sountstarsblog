@@ -50,7 +50,8 @@ module.exports = {
         children: [
           'webpack/basic',
           'webpack/usage',
-          'webpack/polyfill'
+          'webpack/polyfill',
+          'webpack/interview'
         ],
         sidebarDepth: 0
       },
