@@ -4,7 +4,7 @@
 
 
 ## 路由传递参数
-1.问号传参 基于location来完成处理 let {data, location: {search}} = this.props
+1.问号传参 基于location来完成处理 let {data, location: {search}} = this.props  qqq
 ```js
 <Route path='/frame' component={Frame} />
 <NavLink  to='/frame?name=yydbb' >    

@@ -24,6 +24,7 @@ module.exports = {
           'js/object',
           'js/character',
           'js/eventloop',
+          'js/promise'
         ],
         sidebarDepth: 0
       },
