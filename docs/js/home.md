@@ -190,3 +190,53 @@ is('String', 'test'); // true
 is('String', new String('test')); // true
 ```
 
+### this 指向
+```js
+//全局作用域或者普通函数中this指向全局对象window
+//方法调用中谁调用this指向谁
+//构造函数中this指向构造函数的实例
+//注意定时器里面的this指向window
+```
+call
+```js
+Function.prototype.mycall = function(context) {
+	var context = context || window;
+	context.fn = this;  	// 给context添加一个属性
+	var args = [...arguments].slice(1);	// 获取参数
+	var result = context.fn(...args); 	// 执行该函数
+	delete context.fn; 	// 删除fn	
+	return result;	// 返回执行结果
+}
+```
+apply
+```js
+Function.prototype.myapply = function(context) {
+	var context = context || window;
+	context.fn = this;
+	var result = null;
+	if(arguments[1]) {
+		result = context.fn(...arguments);
+	}else {
+		result = context.fn();
+	}
+	delete context.fn;
+	return result;
+}
+```
+bind
+```js
+Function.prototype.mybind = function(context) {
+	if(typeof this !== 'function') {
+		throw new TypeError('Error');
+	}
+	var _this = this;
+	var args = [...arguments].slice(1);
+	return function F() {
+		if(this instanceof F) {
+			return new _this(...args, ...arguments);
+		}
+		return _this.apply(context, args.concat(...arguments));
+	}
+}
+```
+
