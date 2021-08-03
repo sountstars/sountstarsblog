@@ -36,7 +36,7 @@ module.exports = {
           {
             title: "react",
             collapsable: true,
-            children: ["FE/react/basic", "FE/react/lifecycle", "FE/react/hook"],
+            children: ["FE/react/basic", "FE/react/route", "FE/react/lifecycle", "FE/react/hook"],
             sidebarDepth: 0
           }
         ],
