@@ -24,7 +24,7 @@ module.exports = {
           "js/array",
           "js/string",
           "js/object",
-          "js/character",
+          "js/feature",
           "js/eventloop"
         ],
         sidebarDepth: 0
