@@ -2,6 +2,13 @@
 
 [[TOC]]
 
+## 快速生成一个数组
+```js
+//快速生成一个数组
+Array.from(Array(100), (key, index) => index);
+
+[...new Array(100).keys()]
+```
 
 ### reduce()
 + reducer 函数接收4个参数:
