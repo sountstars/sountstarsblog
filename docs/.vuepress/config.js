@@ -1,5 +1,5 @@
 module.exports = {
-  title: "my blog",
+  title: "aurora blog",
   description: "我的个人网站",
   head: [
     // 注入到当前页面的 HTML <head> 中的标签
