@@ -20,7 +20,7 @@ module.exports = {
         title: "JS",
         collapsable: true,
         children: [
-          "js/basic",
+          "js/home",
           "js/array",
           "js/string",
           "js/object",
@@ -63,6 +63,24 @@ module.exports = {
         title: "Typescript",
         collapsable: true,
         children: ["Typescript/basic"],
+        sidebarDepth: 0
+      },
+      {
+        title: "Servers",
+        collapsable: true,
+        children: ["Servers/basic"],
+        sidebarDepth: 0
+      },
+      {
+        title: "Git命令",
+        collapsable: true,
+        children: ["git/command"],
+        sidebarDepth: 0
+      },
+      {
+        title: "Other",
+        collapsable: true,
+        children: ["other/basic"],
         sidebarDepth: 0
       },
     ]
