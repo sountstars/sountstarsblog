@@ -13,7 +13,7 @@ module.exports = {
     nav: [
       // 导航栏配置
       { text: "前端基础", link: "/accumulate/", target: "_self" },
-      { text: "github", link: "https://baidu.com" }
+      { text: "github", link: "https://github.com/sountstars" }
     ],
     sidebar: [
       {
