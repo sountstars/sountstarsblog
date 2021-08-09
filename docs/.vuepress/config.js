@@ -46,6 +46,8 @@ module.exports = {
               "FE/react/lifecycle",
               "FE/react/hook",
               "FE/react/route",
+              "FE/react/react_redux",
+              "FE/react/react_fiber",
               "FE/react/virtual_dom",
               "FE/react/react_event"
             ],
