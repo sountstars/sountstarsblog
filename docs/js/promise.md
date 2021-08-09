@@ -1,4 +1,4 @@
-# Promise & async
+# Promise && async
 
 [[TOC]]
 

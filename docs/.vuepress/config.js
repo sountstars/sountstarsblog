@@ -25,7 +25,12 @@ module.exports = {
           "js/string",
           "js/object",
           "js/feature",
-          "js/eventloop"
+          "js/eventloop",
+          "js/web_worker",
+          "js/promise",
+          "js/heap",
+          "js/fetch_axios",
+          "js/url_process"
         ],
         sidebarDepth: 0
       },
