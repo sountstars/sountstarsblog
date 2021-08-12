@@ -26,6 +26,7 @@ module.exports = {
           "js/object",
           "js/feature",
           "js/eventloop",
+          "js/for_on_for_in",
           "js/web_worker",
           "js/promise",
           "js/heap",

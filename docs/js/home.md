@@ -190,7 +190,7 @@ is('String', 'test'); // true
 is('String', new String('test')); // true
 ```
 
-### this 指向
+## this 指向
 ```js
 //全局作用域或者普通函数中this指向全局对象window
 //方法调用中谁调用this指向谁
