@@ -54,7 +54,23 @@ Array.prototype.my_filter = function (callback) {
 + 顶层数据结构不具备key—>value特征,内部会自动加index序列。
 + 可以存储不同类型的任何数据。
 + 如何理解唯一性：对于原始数据类型（boolean，number，string，null，undefined）如果存储相同值则只会保存一个，对于引用类型做“==”判断即引用地址完全相同则只会存一个。
++ `add(value)方法`: 向集合中添加一个元素value。注意：如果向集合中添加一个`已经存在`的元素，不报错但是集合`不会改变`。
+![solar](../images/set.jpg)
+
+**Map 对象保存键值对**  
+Map 对象保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。  
+**与Object的区别：**
++ 一个 Object 的键只能是字符串或者 Symbols，但一个 Map 的键可以是任意值
++ Map 中的键值是有序的（FIFO 原则），而添加到对象中的键则不是
++ Map 的键值对个数可以从 size 属性获取，而 Object 的键值对个数只能手动计算
++ Object 都有自己的原型，原型链上的键名有可能和你自己在对象上的设置的键名产生冲突，而`map健`不可重复，如果键名冲突则会`覆盖`对应的值。
+![solar](../images/map.jpg)
+
+**WeakSet**
+
 ```js
+//
+
 
 ```
 
@@ -177,7 +193,7 @@ nums.forEach((item, index) => {
 
 - 官方推荐方法（替换方法）：用every和some替代forEach函数。every在碰到return false的时候，中止循环。some在碰到return true的时候，中止循环
 
-### s将多维数组转换为一维数组
+### 将多维数组转换为一维数组
 + 递归
 + flat
 + 正则
@@ -216,7 +232,17 @@ arr.sort(()=>{
 
 ### 数组排序
 ```js
-
+function selectSort(arr) {
+    var len = arr.length;
+    for(let i = 0 ;i < len - 1; i++) {
+        for(let j = i ; j<len; j++) {
+            if(arr[j] < arr[i]) {
+                [arr[i],arr[j]] = [arr[j],arr[i]];
+            }
+        }
+    }
+    return arr
+}
 ```
 
 ### 判断数组中是否有重复元素
