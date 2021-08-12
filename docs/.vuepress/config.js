@@ -21,9 +21,11 @@ module.exports = {
         collapsable: true,
         children: [
           "js/home",
+          "js/date",
           "js/array",
           "js/string",
           "js/object",
+          "js/regexp",
           "js/feature",
           "js/eventloop",
           "js/for_on_for_in",
