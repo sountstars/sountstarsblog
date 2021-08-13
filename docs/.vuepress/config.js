@@ -94,7 +94,7 @@ module.exports = {
       {
         title: "Servers",
         collapsable: true,
-        children: ["Servers/basic"],
+        children: ["Servers/basic","Servers/nginx"],
         sidebarDepth: 0
       },
       {
