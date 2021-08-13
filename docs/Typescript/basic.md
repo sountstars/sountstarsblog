@@ -113,7 +113,56 @@ let directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Ri
 var directions = [0 /* Up */, 1 /* Down */, 2 /* Left */, 3 /* Right */];
 ```
 
-**泛型**
+## 泛型
+
+## 类型推论
+`如果没有明确的指定类型，那么 TypeScript 会依照类型推论（Type Inference）的规则推断出一个类型。`
+以下代码虽然没有指定类型，但是会在编译的时候报错：
+```ts
+let myFavoriteNumber = 'seven';
+myFavoriteNumber = 7;
+
+// index.ts(2,1): error TS2322: Type 'number' is not assignable to type 'string'.
+```
+事实上，它等价于：
+
+```ts
+let myFavoriteNumber: string = 'seven';
+myFavoriteNumber = 7;
+
+// index.ts(2,1): error TS2322: Type 'number' is not assignable to type 'string'.
+```
+```ts
+//如果定义的时候没有赋值，不管之后有没有赋值，都会被推断成 any 类型而完全不被类型检查：
+let myFavoriteNumber;
+myFavoriteNumber = 'seven';
+myFavoriteNumber = 7;
+```
+
+## 联合类型
+`联合类型（Union Types）表示取值可以为多种类型中的一种。`  
+```ts
+let myFavoriteNumber: string | number;
+myFavoriteNumber = 'seven';
+console.log(myFavoriteNumber.length); // 5
+myFavoriteNumber = 7;
+console.log(myFavoriteNumber.length); // 编译时报错,number么有length
+
+// index.ts(5,30): error TS2339: Property 'length' does not exist on type 'number'.
+```
+
+## 类型断言
+```ts
+//类型断言有两种形式。 其一是“尖括号”语法：
+let someValue: any = "this is a string";
+let strLength: number = (<string>someValue).length;
+//另一个为as语法：
+let someValue: any = "this is a string";
+let strLength: number = (someValue as string).length;
+//两种形式是等价的。 至于使用哪个大多数情况下是凭个人喜好；然而，当你在TypeScript里使用JSX时，只有as语法断言是被允许的。
+```
+
+
 
 
 
