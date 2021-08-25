@@ -177,7 +177,7 @@ class Chameleon {
 Chameleon.constructor===Function
 new Chameleon().constructor.constructor===Function
 Object.prototype.toString.call(new Chameleon().constructor) //"[object Function]"
-new ew Chameleon().constructor===Function  //false
+new Chameleon().constructor===Function  //false
 ```
 ### Object.prototype.toString.call()
 ```js
