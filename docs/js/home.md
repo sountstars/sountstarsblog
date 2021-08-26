@@ -240,3 +240,133 @@ Function.prototype.mybind = function(context) {
 }
 ```
 
+## es5 继承
+### 原型链继承
+```js
+function Person(name,age){
+    this.name='张三';  /*属性*/
+    this.age=20;
+    this.run=function(){  /*实例方法*/
+        alert(this.name+'在运动');
+    }
+}      
+Person.prototype.sex="男";
+Person.prototype.work=function(){
+     alert(this.name+'在工作');
+}
+
+//Web类 继承Person类   原型链+对象冒充的组合继承模式
+function Web(name,age){    
+}
+
+Web.prototype=new Person();   //原型链实现继承
+var w=new Web();
+//原型链实现继承:可以继承构造函数里面的属性和方法 也可以继承原型链上面的属性和方法
+//w.run();
+
+w.work();
+ //缺点是实例化子类的时候没法给父类传参
+```
+
+### 对象冒充实现继承
+```js
+function Person(){
+    this.name='张三';  /*属性*/
+    this.age=20;
+    this.run=function(){  /*实例方法*/
+        alert(this.name+'在运动');
+    }
+
+}      
+Person.prototype.sex="男";
+Person.prototype.work=function(){
+     alert(this.name+'在工作');
+
+}
+
+//Web类 继承Person类   对象冒充的组合继承模式
+function Web(){
+    Person.call(this);    /*对象冒充实现继承*/
+}
+var w=new Web();
+// w.run();  //**对象冒充可以继承构造函数里面的属性和方法**
+
+w.work();  //对象冒充可以继承构造函数里面的属性和方法   但是没法继承原型链上面的属性和方法
+```
+
+### 原型链+对象冒充的组合继承模式
+```js
+function Person(name,age){
+        this.name=name;  /*属性*/
+        this.age=age;
+        this.run=function(){  /*实例方法*/
+            alert(this.name+'在运动');
+        }
+
+}      
+Person.prototype.sex="男";
+Person.prototype.work=function(){
+        alert(this.name+'在工作');
+
+}   
+function Web(name,age){
+    Person.call(this,name,age);   //对象冒充继承   实例化子类可以给父类传参
+}
+
+Web.prototype=new Person();//上面已经继承了构函数的方法 ， 这里new 一个会重新继承狗杂函数的方法 ，所以这里可以直接 -> Web.prototype=Person.prototype;
+
+var w=new Web('赵四',20);   
+
+// w.run();
+w.work();
+
+// var w1=new Web('王五',22);
+```
+## es6继承
+### class通过extends关键字实现继承
+```js
+class Parent {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y
+      }
+    }
+    class Child extends Parent {
+      constructor(x, y, name) {
+        super(x, y);//调用父类的constructor(x,y)
+        this.name = name;
+      }
+    }
+    var child1 = new Child("x", "y", "ccg");
+    console.log(child1);　　//Child {x: "x", y: "y", name: "ccg"}
+```
+### super关键字
+  + 如果`在子类构造函数`中使用this，就要`采用super`关键字，它表示调用父类的构造函数。这是必须的。
+  + 因为ES6的继承机制和ES5的不同，ES5是先创造子类的实例对象this，再将父类的方法添加
+  + 到this上面（Parent.apply(this)），而ES6是先创建父类的实例对象this，所以必须调用super关键字。
+  + 虽然super代表A的构造函数，但是返回的是子类B的实例，即super中的this指向的B。
+```js
+  // 复制代码
+  class A {
+      constructor() {
+        console.log(new.target.name);
+      }
+    }
+    class B extends A {
+      constructor() {
+        super();
+      }
+    }
+    new A();
+    new B();
+```
+
+## ES5与ES6继承的区别
++ ES5的继承实质上是先创建子类的实例对象，然后再将`父类的方法添加到this上`（Parent.apply(this)）
++ ES6的继承机制完全不同，实质上是先`创建父类的实例对象this`（所以必须先调用父类的super()方法），然后再用子类的构造函数修改this。
++ ES5的继承时通过原型或构造函数机制来实现
++ ES6通过class关键字定义类，里面有构造方法，类之间通过extends关键字实现继承。子类必须在constructor方法中调用super方法，否则新建实例报错。因为子类没有自己的this对象，而是继承了父类的this对象，然后对其进行加工。如果不调用super方法，子类得不到this对象。  
+**`注意`**  
++ super关键字指代父类的实例，即父类的this对象。
++ 在子类构造函数中，调用super后，才可使用this关键字，否则报错。
+
