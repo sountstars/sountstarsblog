@@ -77,7 +77,7 @@ document.body.removeChild(link);
 
 ## Es6模块导入
 
-```
+```js
 import * as xxx from ‘xxx’:  // 会将若干export导出的内容组合成一个对象返回；
 import {a,b,c,...} from ‘xxx’
 
