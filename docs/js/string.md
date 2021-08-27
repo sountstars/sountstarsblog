@@ -95,3 +95,6 @@ s.endsWith('!') // true
 s.includes('o') // true
 ```
 
+## 参考文档
+[MDN STRING](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String)
+

@@ -17,7 +17,7 @@ Array.from(Array(100), (key, index) => index);
 ### isArray() 实现
 Array.isArray() 用于确定传递的值是否是一个 Array。
 ```js
-// isArray 实现  r
+// isArray 实现  
 Array.myIsArray = function(o) {
   return Object.prototype.toString.call(Object(o)) === '[object Array]';
 };
