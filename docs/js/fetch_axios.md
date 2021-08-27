@@ -2,7 +2,7 @@
 
 [[TOC]]
 
-### AJAX
+## AJAX
 ```js
 const xhr = new XMLHttpRequest();
 xhr.withCredentials = true; // 添加cookie
@@ -24,7 +24,7 @@ xhr.send({});
 xhr.abort()//终止请求
 ```
 
-### Axios
+## Axios
 ```js
 //全局的一些配置
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
@@ -79,7 +79,7 @@ instance.defaults.headers.common['Authorization'] = `Bearer ${getCookie('token')
 axios.post(baseUrl,{data:{}})
 ```
 
-### Fetch
+## Fetch
 ```js
 fetch('http://xxxxx/xx.cn', 
      { 
@@ -102,13 +102,13 @@ fetch('http://xxxxx/xx.cn',
 )
 ```
 
-### Fetch vs Axios  
-#### 浏览器支持
+## Fetch vs Axios  
+### 浏览器支持
 `Fetch暂时不支持所有版本的IE`
 与成熟的XHR对象相比，Fetch API较新，预计未来几年会进行一定的维护工作,可能后期会返工。
 
 你也可以选择将Fetch polyfill与Promise polyfill结合使用，以便在IE中执行Fetch代码
-#### Fetch默认无Cookie
+### Fetch默认无Cookie
 与`XMLHttpRequest不同,Fetch并不会默认发送Cookie`，因此应用的身份验证可能会失败,可以通过更改第二个参数中传递的初始值来解决此问题
 ```js
 fetch('http://xxxxx/xx.cn', 
@@ -119,7 +119,7 @@ fetch('http://xxxxx/xx.cn',
  )
 ```
 
-#### 错误不会被拒绝
+### 错误不会被拒绝
 HTTP错误（例如404 500）不会导致 Fetch返回的Promise标记为reject，.catch()也不会被执行。 想要精确的判断fetch是否成功，需要包含 promise.resolved 的情况，此时再判断 response.ok是不是为 true。
 ```js
 fetch('http://xxxxx/xx.cn', {method: 'GET'}).then(response => {
@@ -131,7 +131,7 @@ fetch('http://xxxxx/xx.cn', {method: 'GET'}).then(response => {
 ```
 仅当请求无法完成时才触发reject，例如网络故障或请求被阻止。这会使错误捕获更加复杂。
 
-#### 不支持超时
+### 不支持超时
 Fetch不支持超时，只要浏览器允许，请求将继续。解决方法是可以将Fetch包装在一个 Promise中，例如:
 ```js
 const fetchTimeout = (url, init, timeout = 3000) => {
@@ -141,7 +141,7 @@ const fetchTimeout = (url, init, timeout = 3000) => {
     })
 };
 ```
-#### 或者 Promise.race([])
+### 或者 Promise.race([])
 ```js
 const fetchTimeout = (url, init, timeout = 30) => {
     return Promise.race(
@@ -153,7 +153,7 @@ const fetchTimeout = (url, init, timeout = 30) => {
 };
 ```
 
-#### 中止Fetch
+### 中止Fetch
 通过xhr.abort()很容易结束一个XHR请求，另外也可以通过xhr.onabort函数监测事件解决。
 
 之前一直无法中止一个Fetch请求，但是现在实现了AbortController API的浏览器可以支持它。这将触发一个信号，该信号可以传递给Fetch启动对象：
@@ -169,10 +169,10 @@ fetch('http://xxxx/xx.cn', {
 ```
 可以通过调用**controller.abort()**来中止,Promise被标记reject后，会调用.catch()函数。
 
-#### 没有 progress
+### 没有 progress
 到目前为止Fetch仍不支持进度事件，因此，不可能显示文件上传或大型表单提交的进度状态。
 
-### 封装Fetch
+## 封装Fetch
 ```js
 // 请求超时时间设置
 const REQUEST_TIEM_OUT = 10 * 1000;

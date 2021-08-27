@@ -107,3 +107,6 @@ console.log(reg.test('data')) // true
 console.log(reg.test('java')) // true
 console.log(reg.test('fear')) // false
 ```
+
+## 参考文档
+[参考文档](https://github.com/any86/any-rule)
