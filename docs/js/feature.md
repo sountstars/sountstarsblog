@@ -3,10 +3,6 @@
 [[TOC]]
 
 ## let/const 变量
-let/const取代var
-```js
-
-```
 
 ## 字符串模板
 
@@ -16,8 +12,7 @@ let/const取代var
 
 ## 新数据结构Map/Set/WeakMap/WeakSet
 
-## [Proxy](https://github.com/lukehoban/es6features#proxies)  
-[Reflect](https://www.cnblogs.com/zczhangcui/p/6486582.html)
+## [Proxy](https://github.com/lukehoban/es6features#proxies)  [Reflect](https://www.cnblogs.com/zczhangcui/p/6486582.html)
 
 ## 扩展
 + 字符串填充（padStart 和 padEnd）
