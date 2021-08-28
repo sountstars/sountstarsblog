@@ -89,13 +89,103 @@ Object.defineProperty(obj, 'name', {
 console.log(obj.name)  //张三
 ```
 
-## set 和 get 用法
+## Object.getPrototypeOf()  
+描述：用于读取一个对象的原型对象；  
 
+格式：Object.getPrototypeOf(obj);
+
+用法：
 ```js
+Object.getPrototypeOf('foo') === String.prototype === 'foo'.__proto__ // true
+Object.getPrototypeOf(true) === Boolean.prototype === true.__proto__ // true
+```
+
+## Object.setPrototypeOf()
+描述: Object.setPrototypeOf方法的作用与_proto_相同，用来设置一个对象的prototype对象，返回参数对象本身
+
+格式：Object.setPrototypeOf(object, prototype)
+
+该方法等同于下面的函数：
+```js
+function (obj, proto) {
+  obj.__proto__ = proto;
+  return obj;
+}
+```
+**示例**
+```js
+let proto = {};
+let obj = { x: 10 };
+Object.setPrototypeOf(obj, proto);
+ 
+proto.y = 20;
+proto.z = 40;
+ 
+obj.x // 10
+obj.y // 20
+obj.z // 40
+```
+
+## keys & values & entries
++ Object.keys 键
++ Object.values 值
++ Object.entries 组件二级数组
+```js
+const obj =  {
+    address: "434343422",
+    admin: "3434",
+    adminCharater: '4444',
+    adminRecord: '33',
+    article: '22',
+    artist: '11'
+  }
+  Object.entries(obj)// [["address", "434343422"]...]
+  Object.keys(obj) //["address", "admin", "adminCharater", "adminRecord", "article", "artist"]
+  Object.values(obj) //["434343422", "3434", "4444", "33", "22", "11"]
+```
+
+## Object 的 set 和 get 用法
+在初始化对象的时候这样使用
+```js
+var obj={
+    a: 1,
+    b: 2,
+    set c(x){console.log('c被赋值：',x);c=x;},
+    get c(){console.log('c被取出: ',c);return c}  
+};
+
+obj.c=3  //c被赋值： 3
+obj.c  //c被取出:  3
+```
+对象初始化之后可以这样添加属性
+```js
+var obj={
+    a: 1,
+    b: 2    
+};
+
+obj.__defineGetter__('c', function(){return c});
+obj.__defineSetter__('c', function(x){c = x});
+```
+或者使用
+```js
+Objec(obj, c, {
+　　set:function(x){
+　　　　console.log('c被赋值：',x);
+　　　　c=x
+　　},
+　　get:function(){
+　　　　console.log('c被取出：',c)
+　　　　return c
+　　}
+})
+obj.c=3  //c被赋值： 3
+obj.c  //c被取出:  3
 ```
 
 ## Object.fromEntries()
-ES10新增
+ES10新增  
+接收一个键值对的列表参数,并返回一个带有这些键值对的新对象
 ```js
 const entries = new Map([
   ['foo', 'bar'],
