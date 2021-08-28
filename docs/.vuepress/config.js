@@ -13,7 +13,7 @@ module.exports = {
   themeConfig: {
     nav: [
       // 导航栏配置
-      { text: "前端基础", link: "/accumulate/", target: "_self" },
+      // { text: "前端基础", link: "FE/react", target: "_self" },
       { text: "github", link: "https://github.com/sountstars" }
     ],
     sidebar: [
@@ -33,8 +33,10 @@ module.exports = {
           "js/web_worker",
           "js/promise",
           "js/heap",
+          "js/design",
+          "js/npm_yarn",
           "js/fetch_axios",
-          "js/url_process"
+          "js/url_process",
         ],
         sidebarDepth: 0
       },
