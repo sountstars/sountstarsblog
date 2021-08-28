@@ -141,7 +141,7 @@ const fetchTimeout = (url, init, timeout = 3000) => {
     })
 };
 ```
-### 或者 Promise.race([])
+或者 Promise.race([])
 ```js
 const fetchTimeout = (url, init, timeout = 30) => {
     return Promise.race(
@@ -397,4 +397,7 @@ class ProxyFetch {
   }
 }
 ```
+
+## 参考文档
+[analysis](https://www.sitepoint.com/xmlhttprequest-vs-the-fetch-api-whats-best-for-ajax-in-2019/)
 
