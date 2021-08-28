@@ -3,14 +3,27 @@
 [[TOC]]
 
 ## let/const 变量
++ 不会进行变量声明提升
++ 会生成暂时性死区
++ 变量不允许被重复定义
++ 变量不可以被删除
 
 ## 字符串模板
+```js
+`string text ${expression} string text`
+```
 
 ## 对象解构
+```js
+var robotA = { name: "Bender" };
+var { name: nameA } = robotA;
+```
 
 ## 新数据类型 Symbol
+[Symblo](https://zhuanlan.zhihu.com/p/136737426)
 
 ## 新数据结构Map/Set/WeakMap/WeakSet
+[map--set--weakmap--weakset](https://github.com/lukehoban/es6features#map--set--weakmap--weakset)
 
 ## [Proxy](https://github.com/lukehoban/es6features#proxies)  [Reflect](https://www.cnblogs.com/zczhangcui/p/6486582.html)
 
@@ -69,6 +82,11 @@ import defaultName， * as moduleName from 'modules';
 // 引入无输出模块
 import 'modules';
 ```
+
+## 参考文档 
+[es6features](https://github.com/lukehoban/es6features)
+
+[高级前端开发工程师总结](https://zhuanlan.zhihu.com/p/87699079)
  
 
 
