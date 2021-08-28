@@ -26,25 +26,29 @@ Array.myIsArray = function(o) {
 ### filter实现
 ```js
 Array.prototype.my_filter = function (callback) {
-            if (!Array.isArray(this) || !this.length || typeof callback !== 'function') {
-                return []
-            } else {
-                let result = [];
-                for (let index = 0; index < this.length; index++) {
-                    const element = this[index];
-                    if (callback(element, index, this)) {
-                        result.push(element)
-                    }
-                }
-                return result
-            }
-        }
+  if (!Array.isArray(this) || !this.length || typeof callback !== 'function') {
+      return []
+  } else {
+      let result = [];
+      for (let index = 0; index < this.length; index++) {
+          const element = this[index];
+          console.log(this,callback)
+          // [1, 2, 3, 4, 5] (ele, i) => {
+          //     return ele % 2 === 0
+          // }
+          if (callback(element, index, this)) {
+              result.push(element)
+          }
+      }
+      return result
+  }
+}
 
- let arr = [1, 2, 3, 4, 5]
-  let res = arr.my_filter((ele, i) => {
-      return ele % 2 === 0
-  })
-  console.log(res)//[2,4]
+let arr = [1, 2, 3, 4, 5]
+let res = arr.my_filter((ele, i) => {
+    return ele % 2 === 0
+})
+console.log(res)//[2,4]
     
 ```
 
@@ -123,14 +127,44 @@ console.log(animals.slice(2, 4));
 console.log(animals.slice(1, 5));
 // expected output: Array ["bison", "camel", "duck", "elephant"]
 ```
-### splice()
-splice() 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。
-
-删除
-
-
 ```js
+//slice的内部实现
+Array.prototype.slice = function(start,end){ 
+    var result = new Array(); 
+    start = start || 0; 
+    end = end || this.length; //this指向调用的对象，当用了call后，能够改变this的指向，也就是指向传进来的对象，这是关键 
+    for(var i = start; i < end; i++){ 
+          result.push(this[i]); 
+    } 
+    return result; 
+}
+```
+### splice()
+`splice()`方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法`会改变原数组`。
 
+**删除**  
+第二个参数为`删除的个数`
+```js
+var ary =[1,2,3,4,5,6]
+//[].splice.call(ary,1,1)
+ary.splice(1,1);   // 返回删除的一项 [2]
+ary  //[1, 3, 4, 5, 6]
+```
+**插入**
+```js
+var ary =[1,2,3,4,5,6]
+ary.splice(2, 0, "7");   //[], 没有元素被删除
+ary  //[1, 2, "7", 3, 4, 5, 6]
+
+ary.splice(2, 0, "9",'10',11,12)
+ary  //[1, 2, "9", "10", 11, 12, "7", 3, 4, 5, 6]
+```
+
+**删除 & 插入**
+```js
+var myFish = ['angel', 'clown', 'trumpet', 'sturgeon'];
+myFish.splice(0, 2, 'parrot', 'anemone', 'blue'); //["angel", "clown"]
+myFish  //["parrot", "anemone", "blue", "trumpet", "sturgeon"]
 ```
 
 ### filter() 实现
