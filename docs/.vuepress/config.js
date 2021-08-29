@@ -122,13 +122,13 @@ module.exports = {
       {
         title: "Git命令",
         collapsable: true,
-        children: ["git/command"],
+        children: ["git/standard"],
         sidebarDepth: 0
       },
       {
         title: "Other",
         collapsable: true,
-        children: ["other/basic"],
+        children: ["other/basic","other/master","other/message"],
         sidebarDepth: 0
       }
     ]
