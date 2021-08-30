@@ -115,7 +115,7 @@ module.exports = {
 ```
 
 ## plugins
-//常用
+`常用`
 + HtmlWebpackPlugin 自动在html中加载打包后的js文件
 + DLLPlugin/DllReferencePlugin 提高打包速度
     +    DLLPlugin：创建一个只有dll的bundle
@@ -173,3 +173,15 @@ devServer: {
     }
 }
 ```
+
+## webapck 构建流程
+1. 校验配置文件 ：读取命令行传入或者`webpack.config.js`文件，初始化本次构建的配置参数
+2. 生成`Compiler`对象：执行配置文件中的插件实例化语句`new MyWebpackPlugin()`，为webpack事件流挂上自定义`hooks`
+3. 进入`entryOption`阶段：webpack开始读取配置的`Entries`，递归遍历所有的入口文件
+4. `run/watch`：如果运行在`watch模式`则执行watch方法，否则`执行run`方法
+5. `compilation`：创建Compilation对象回调compilation相关钩子，依次进入每一个`入口文件(entry)`，使用`loader对文件进行编译`。通过compilation我可以读取到`module`的`resource（资源路径）`、`loaders（使用的loader）`等信息。再将编译好的文件内容使用`acorn解析`生成`AST静态语法树`。然后递归、重复的执行这个过程， 所有模块和和依赖分析完成后，执行 compilation 的 `seal 方法`对每个 chunk 进行整理、优化、封装__webpack_require__来模拟模块化操作.
+6. `emit`：所有文件的编译及转化都已经完成，包含了最终输出的资源，我们可以在传入事件回调的`compilation.assets上`拿到所需数据，其中包括即将输出的资源、代码块Chunk等等信息
+
+## Tapable是如何把各个插件串联到一起的
+
+## compiler以及compilation对象的使用以及它们对应的事件钩子。
