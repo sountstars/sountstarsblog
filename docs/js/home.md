@@ -370,3 +370,7 @@ class Parent {
 + super关键字指代父类的实例，即父类的this对象。
 + 在子类构造函数中，调用super后，才可使用this关键字，否则报错。
 
+## 原型、原型链
+<!-- js分为**函数对象和普通对象**，每个对象都有__proto__属性，但是只有函数对象才有prototype属性 -->
+[原型-原型链详解](https://blog.csdn.net/weixin_42614080/article/details/93413476)
+
