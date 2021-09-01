@@ -19,6 +19,46 @@
 
 使用 IE<=9, Opera<12, or Firefox<3.5 或者更加老的浏览器，这个时候请使用 JSONP 
 
+[参考文章](https://blog.csdn.net/xxssyyyyssxx/article/details/104431627)
+
+### JSONP
++ JSONP 主要就是利用了`script标签`没有跨域限制的这个特性来完成的。  
++ 仅支持 GET 方法
+```js
+<script type="text/javascript">  
+window.jsonpCallback = function(res) {
+        console.log(res);  
+    };
+</script>
+<script  src="http://localhost:8080/api/jsonp?msg=hello&cb=jsonpCallback"  type="text/javascript"></script>
+```
+
+### Nginx 反向代理
+配置如下个菜单
+
+### Websocket
+WebSocket 规范定义了一种 API，可在网络浏览器和服务器之间建立“套接字”连接,这种方式本质`没有使用了 HTTP 的响应头`, 因此也`没有跨域`的限制
+
+### window.postMessage
+postMessage提供了一种受控机制来规避此限制，只要正确的使用，这种方法就很安全。
+
+otherWindow.postMessage(message, targetOrigin, [transfer]);
+[详细用法](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage)
+
+### document.domain + Iframe
+该方式只能用于**二级域名相同**的情况下，比如 a.test.com 和 b.test.com 适用于该方式。
+只需要给页面添加`document.domain ='test.com'`表示二级域名都相同就可以实现跨域。
+
+### window.location.hash + Iframe
+通过 url 带 hash ，通过一个非跨域的中间页面来传递数据。
+
+### window.name + Iframe 
+iframe 的 src 属性由外域转向本地域，跨域数据即由 iframe 的 window.name 从外域传递到本地域
+
+### 参考文章
+[参考文章](https://juejin.cn/post/6844904126246027278#heading-38)
+
+
 
 
 
