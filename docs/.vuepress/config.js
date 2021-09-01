@@ -37,6 +37,7 @@ module.exports = {
           "js/npm_yarn",
           "js/fetch_axios",
           "js/url_process",
+          "js/proxy",
         ],
         sidebarDepth: 0
       },
