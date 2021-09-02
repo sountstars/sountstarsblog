@@ -56,3 +56,4 @@ yarn config set registry https://registry.yarnpkg.com
 
 ## 参考文章
 [5 things you can do with Yarn](https://auth0.com/blog/five-things-you-can-do-with-yarn/)
+[npm script 小书](https://juejin.cn/post/6844903887531409422)
