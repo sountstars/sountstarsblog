@@ -374,3 +374,47 @@ class Parent {
 <!-- js分为**函数对象和普通对象**，每个对象都有__proto__属性，但是只有函数对象才有prototype属性 -->
 [原型-原型链详解](https://blog.csdn.net/weixin_42614080/article/details/93413476)
 
+
+## 文件流转化（转成Excel）
+
+```js
+ axios({
+        method: "GET",
+        url: 'www.baidu.com',//uel
+        responseType: 'arraybuffer', // 或者responseType: 'blob'
+        xsrfHeaderName: 'Authorization',
+        data:{},//post携带参数
+        //params:{},get携带参数
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'token' // 设置token
+        }
+  }).then(res=>{
+      const blob = new Blob([res.data]);
+      const fileName = '全部数据' + '.xlsx';
+      // 判断浏览器
+      var brower = '';
+      if (navigator.userAgent.indexOf('Edge') > -1) {
+          brower = 'Edge';
+      }
+      if ('download' in document.createElement('a')) {
+          // 非IE下载
+          if (brower == 'Edge') {
+          navigator.msSaveBlob(blob, fileName);
+          return;
+          }
+          const elink = document.createElement('a');
+          elink.download = fileName;
+          elink.style.display = 'none';
+          elink.href = URL.createObjectURL(blob);
+          document.body.appendChild(elink);
+          elink.click();
+          URL.revokeObjectURL(elink.href);
+          // 释放URL 对象
+          document.body.removeChild(elink);
+      } else {
+          // IE10+下载
+          navigator.msSaveBlob(blob, fileName);
+      }
+  })
+```
