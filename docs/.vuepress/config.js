@@ -63,7 +63,9 @@ module.exports = {
           {
             title: "vue",
             collapsable: true,
-            children: [],
+            children: [
+              "FE/vue/basic"
+            ],
             sidebarDepth: 0
           },
           {
