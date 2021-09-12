@@ -11,6 +11,16 @@
 
 **签名要注意,要和以前保持一致，不然后续可能会有问题**
 
+## 切换页面触发刷新
+```js
+  React.useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      // 方法
+    });
+    return unsubscribe;
+  }, [navigation]);
+```
+
 ## 内嵌webview
 使用**react-native-webview**
 ```js
