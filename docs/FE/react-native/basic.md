@@ -138,7 +138,11 @@ export default function usePayment({
 ```
 
 ## 年月日组件
-**SlideupMenu** 弹窗蒙层组件
+**SlideupMenu** 弹窗蒙层组件  
+`类似下面图片组件`
+
+![solar](../../images/datepicker.jpg)  
+
 ```js
 
 const styles = StyleSheet.create({
