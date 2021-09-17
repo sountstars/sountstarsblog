@@ -34,6 +34,7 @@ module.exports = {
           "js/promise",
           "js/heap",
           "js/design",
+          "js/interview",
           "js/npm_yarn",
           "js/fetch_axios",
           "js/url_process",
