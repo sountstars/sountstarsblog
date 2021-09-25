@@ -29,6 +29,7 @@ module.exports = {
           "js/regexp",
           "js/feature",
           "js/eventloop",
+          "js/http_https",
           "js/for_on_for_in",
           "js/web_worker",
           "js/promise",
