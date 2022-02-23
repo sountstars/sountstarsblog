@@ -58,7 +58,8 @@ module.exports = {
               "FE/react/react_redux",
               "FE/react/react_fiber",
               "FE/react/virtual_dom",
-              "FE/react/react_event"
+              "FE/react/react_event",
+              "FE/react/sound_code",
             ],
             sidebarDepth: 0
           },
@@ -77,7 +78,7 @@ module.exports = {
               "FE/react-native/basic"
             ],
             sidebarDepth: 0
-          }
+          },
         ],
         sidebarDepth: 0
       },
