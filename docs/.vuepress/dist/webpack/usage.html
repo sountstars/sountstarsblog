@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Webpack的使用 | aurora blog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/feature_cat.jpeg">
+    <meta name="description" content="我的个人网站">
+    
+    <link rel="preload" href="/assets/css/0.styles.cb058343.css" as="style"><link rel="preload" href="/assets/js/app.a4e80abf.js" as="script"><link rel="preload" href="/assets/js/2.52866a67.js" as="script"><link rel="preload" href="/assets/js/58.542150a6.js" as="script"><link rel="prefetch" href="/assets/js/10.c90e4926.js"><link rel="prefetch" href="/assets/js/11.f7937699.js"><link rel="prefetch" href="/assets/js/12.9c5ad91f.js"><link rel="prefetch" href="/assets/js/13.409d7100.js"><link rel="prefetch" href="/assets/js/14.31a9b0f4.js"><link rel="prefetch" href="/assets/js/15.67e7098d.js"><link rel="prefetch" href="/assets/js/16.49b0b533.js"><link rel="prefetch" href="/assets/js/17.819bf99b.js"><link rel="prefetch" href="/assets/js/18.bac78a5c.js"><link rel="prefetch" href="/assets/js/19.eea90313.js"><link rel="prefetch" href="/assets/js/20.9f6dac92.js"><link rel="prefetch" href="/assets/js/21.b86ba564.js"><link rel="prefetch" href="/assets/js/22.5a781ad8.js"><link rel="prefetch" href="/assets/js/23.07ce8733.js"><link rel="prefetch" href="/assets/js/24.d413db0d.js"><link rel="prefetch" href="/assets/js/25.1f42cdf3.js"><link rel="prefetch" href="/assets/js/26.9b5d1e99.js"><link rel="prefetch" href="/assets/js/27.e3c3e73c.js"><link rel="prefetch" href="/assets/js/28.1cfe5699.js"><link rel="prefetch" href="/assets/js/29.fcfc4553.js"><link rel="prefetch" href="/assets/js/3.44126956.js"><link rel="prefetch" href="/assets/js/30.011bdae9.js"><link rel="prefetch" href="/assets/js/31.87c49613.js"><link rel="prefetch" href="/assets/js/32.785f3b5f.js"><link rel="prefetch" href="/assets/js/33.d851ac79.js"><link rel="prefetch" href="/assets/js/34.095dfd7c.js"><link rel="prefetch" href="/assets/js/35.175ac93c.js"><link rel="prefetch" href="/assets/js/36.cdb35651.js"><link rel="prefetch" href="/assets/js/37.b1e60efd.js"><link rel="prefetch" href="/assets/js/38.8fce9320.js"><link rel="prefetch" href="/assets/js/39.4bbc0262.js"><link rel="prefetch" href="/assets/js/4.6a086079.js"><link rel="prefetch" href="/assets/js/40.4a96b7b1.js"><link rel="prefetch" href="/assets/js/41.da3e737e.js"><link rel="prefetch" href="/assets/js/42.9d9b7976.js"><link rel="prefetch" href="/assets/js/43.d81e144f.js"><link rel="prefetch" href="/assets/js/44.afa7ffe0.js"><link rel="prefetch" href="/assets/js/45.194d68b8.js"><link rel="prefetch" href="/assets/js/46.09249766.js"><link rel="prefetch" href="/assets/js/47.27f0c266.js"><link rel="prefetch" href="/assets/js/48.7ed4ba3c.js"><link rel="prefetch" href="/assets/js/49.a13a482c.js"><link rel="prefetch" href="/assets/js/5.99ddc87c.js"><link rel="prefetch" href="/assets/js/50.8c1d37fc.js"><link rel="prefetch" href="/assets/js/51.ada440d7.js"><link rel="prefetch" href="/assets/js/52.babfc324.js"><link rel="prefetch" href="/assets/js/53.23dabc88.js"><link rel="prefetch" href="/assets/js/54.f55ea290.js"><link rel="prefetch" href="/assets/js/55.47814c34.js"><link rel="prefetch" href="/assets/js/56.9ca0ec63.js"><link rel="prefetch" href="/assets/js/57.b442bff3.js"><link rel="prefetch" href="/assets/js/6.11773ee6.js"><link rel="prefetch" href="/assets/js/7.b156b7cb.js"><link rel="prefetch" href="/assets/js/8.dfb56ee2.js"><link rel="prefetch" href="/assets/js/9.f870735d.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.cb058343.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">aurora blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://github.com/sountstars" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://github.com/sountstars" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>FE框架</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>构建工具</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>webpack</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/webpack/basic.html" class="sidebar-link">Webpack配置详解</a></li><li><a href="/webpack/usage.html" aria-current="page" class="active sidebar-link">Webpack的使用</a></li><li><a href="/webpack/polyfill.html" class="sidebar-link">Babel-polyfill</a></li><li><a href="/webpack/interview.html" class="sidebar-link">webpack面试题</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>vite</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/webpack/diff.html" class="sidebar-link">构建对比</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Typescript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Servers</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Git命令</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Other</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="webpack的使用"><a href="#webpack的使用" class="header-anchor">#</a> Webpack的使用</h1> <p></p><div class="table-of-contents"><ul><li><a href="#优化">优化</a></li><li><a href="#splitchunks拆包">splitChunks拆包</a></li><li><a href="#定义全局变量-defineplugin">定义全局变量(DefinePlugin)</a></li><li><a href="#webpack代理">webpack代理</a></li><li><a href="#babelrc">.babelrc</a></li><li><a href="#env">.env</a></li><li><a href="#优化输出的文件">优化输出的文件</a></li><li><a href="#webpack用到的插件">webpack用到的插件</a></li><li><a href="#require-context是什么">require.context是什么</a></li></ul></div><p></p> <h2 id="优化"><a href="#优化" class="header-anchor">#</a> 优化</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token number">1.</span>异步加载模块
+<span class="token number">2.</span>提取第三库
+<span class="token number">3.</span>代码压缩
+<span class="token number">4.</span>去除不必要的插件
+<span class="token number">5.</span>图片base64
+<span class="token number">6.</span>按需加载
+<span class="token number">7.</span>开启Gzip压缩
+</code></pre></div><h2 id="splitchunks拆包"><a href="#splitchunks拆包" class="header-anchor">#</a> splitChunks拆包</h2> <ul><li>Webpack4之SplitChunksPlugin</li> <li>Webpack3的CommonsChunkPlugin（已废弃）</li></ul> <div class="language-js extra-class"><pre class="language-js"><code></code></pre></div><h2 id="定义全局变量-defineplugin"><a href="#定义全局变量-defineplugin" class="header-anchor">#</a> 定义全局变量(DefinePlugin)</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//eslint 设置通过</span>
+ <span class="token string">&quot;globals&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+     <span class="token string">&quot;ENV&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+ <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>DefinePlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+     <span class="token comment">//必须 JSON.stringify()，然后在eslint里面，global()通过一下</span>
+    <span class="token constant">ENV</span><span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">ENV</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 执行环境</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+</code></pre></div><h2 id="webpack代理"><a href="#webpack代理" class="header-anchor">#</a> webpack代理</h2> <ul><li>webpack-dev-server</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//在配置文件webpackDevServer.config.js添加，</span>
+<span class="token comment">//新版本直接在package.json 里面添加，但是只能添加一个并且是字符串，也可在src下添加setupProxy.js</span>
+
+<span class="token keyword">const</span> proxy <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http-proxy-middleware'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">app</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+        <span class="token function">proxy</span><span class="token punctuation">(</span><span class="token string">&quot;/pic&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;target&quot;</span><span class="token operator">:</span> <span class="token string">&quot;http://120.79.229.197:9000&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;changeOrigin&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;secure&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;pathRewrite&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token string">&quot;^/pic&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+        <span class="token function">proxy</span><span class="token punctuation">(</span><span class="token string">&quot;/self&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;target&quot;</span><span class="token operator">:</span> <span class="token string">&quot;http://localhost:9999&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;changeOrigin&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;secure&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;pathRewrite&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token string">&quot;^/self&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="babelrc"><a href="#babelrc" class="header-anchor">#</a> .babelrc</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//新的版本已经支持在package.json里面直接修改</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span>
+   <span class="token string">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+     <span class="token punctuation">[</span>
+     <span class="token string">&quot;@babel/preset-env&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+       <span class="token string">&quot;targets&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+         <span class="token string">&quot;chrome&quot;</span><span class="token operator">:</span> <span class="token number">58</span><span class="token punctuation">,</span>
+         <span class="token string">&quot;ie&quot;</span><span class="token operator">:</span> <span class="token number">11</span>
+       <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span>
+   <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;react-app&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token string">&quot;plugins&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+     <span class="token punctuation">[</span><span class="token string">&quot;import&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+         <span class="token string">&quot;libraryName&quot;</span><span class="token operator">:</span> <span class="token string">&quot;antd&quot;</span><span class="token punctuation">,</span>
+         <span class="token string">&quot;libraryDirectory&quot;</span><span class="token operator">:</span> <span class="token string">&quot;es&quot;</span><span class="token punctuation">,</span>
+         <span class="token string">&quot;style&quot;</span><span class="token operator">:</span> <span class="token string">&quot;css&quot;</span>
+       <span class="token punctuation">}</span>
+     <span class="token punctuation">]</span><span class="token punctuation">,</span>
+     <span class="token punctuation">[</span><span class="token string">&quot;@babel/plugin-proposal-decorators&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">&quot;legacy&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment">//用于转换装饰器代码的插件。</span>
+     <span class="token punctuation">[</span>
+       <span class="token string">&quot;@babel/plugin-transform-runtime&quot;</span><span class="token punctuation">,</span>
+       <span class="token punctuation">{</span>
+         <span class="token string">&quot;absoluteRuntime&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+         <span class="token string">&quot;corejs&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+         <span class="token string">&quot;helpers&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+         <span class="token string">&quot;regenerator&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+         <span class="token string">&quot;useESModules&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+       <span class="token punctuation">}</span>
+     <span class="token punctuation">]</span>
+   <span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token string">&quot;env&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+     <span class="token string">&quot;production&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+       <span class="token string">&quot;plugins&quot;</span><span class="token operator">:</span>  <span class="token punctuation">[</span><span class="token string">&quot;transform-remove-console&quot;</span><span class="token punctuation">]</span>
+     <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="env"><a href="#env" class="header-anchor">#</a> .env</h2> <p>定义一些环境变量，可以通过process.env.[name]拿取出来</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token constant">GENERATE_SOURCEMAP</span><span class="token operator">=</span><span class="token boolean">false</span>  <span class="token comment">//禁止输出.map文件</span>
+</code></pre></div><h2 id="优化输出的文件"><a href="#优化输出的文件" class="header-anchor">#</a> 优化输出的文件</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+* hash:hash是跟整个项目的构建相关，只要项目里有文件更改，整个项目构建的hash值都会更改
+* 采用hash计算的话，每一次构建后生成的哈希值都不一样，即使文件内容压根没有改变。这样子是没办法实现缓存效果，我们需要换另一种哈希值计算方式，即chunkhash。
+*
+* chunkhash:根据不同的入口文件(Entry)进行依赖文件解析、构建对应的chunk，生成对应的哈希值。
+* 我们在生产环境里把一些公共库和程序入口文件区分开，单独打包构建，接着我们采用chunkhash的方式生成哈希值，那么只要我们不改动公共库的代码，就可以保证其哈希值不会受影响。
+* 
+* filename:决定了entry入口文件输出文件的名称。 (main.js)
+* 
+* chunkFilename:决定了非入口(non-entry) chunk 文件的名称,比如按需加载（异步）模块的时候 (组件打包的js)
+*/</span>
+<span class="token comment">//js文件的输出</span>
+output<span class="token operator">:</span> <span class="token punctuation">{</span>
+    filename<span class="token operator">:</span> <span class="token string">'js/[name].[hash:8].js'</span><span class="token punctuation">,</span>
+    chunkFilename<span class="token operator">:</span> <span class="token string">'js/[name].[chunkhash:8].js'</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token comment">//css文件的输出</span>
+miniCssExtractPluginOption<span class="token operator">:</span> <span class="token punctuation">{</span>
+    filename<span class="token operator">:</span> <span class="token string">'css/[name].[hash:8].css'</span><span class="token punctuation">,</span>
+    chunkFilename<span class="token operator">:</span> <span class="token string">'css/[name].[chunkhash:8].css'</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token comment">//img文件的输出</span>
+imageUrlLoaderOption<span class="token operator">:</span> <span class="token punctuation">{</span>
+    limit<span class="token operator">:</span> <span class="token number">1024</span><span class="token operator">*</span><span class="token number">50</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'static/images/[name].[hash:8].[ext]'</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><h2 id="webpack用到的插件"><a href="#webpack用到的插件" class="header-anchor">#</a> webpack用到的插件</h2> <h2 id="require-context是什么"><a href="#require-context是什么" class="header-anchor">#</a> require.context是什么</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/webpack/basic.html" class="prev">
+        Webpack配置详解
+      </a></span> <span class="next"><a href="/webpack/polyfill.html">
+        Babel-polyfill
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a4e80abf.js" defer></script><script src="/assets/js/2.52866a67.js" defer></script><script src="/assets/js/58.542150a6.js" defer></script>
+  </body>
+</html>
