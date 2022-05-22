@@ -3,6 +3,7 @@ export default () => {
   let app = document.getElementById("app");
   let script = document.createElement("script");
   script.type = "text/javascript";
+  console.log(' water-mark')
   script.src =
     "https://cdn.jsdelivr.net/gh/sountstars/watermark@master/dist/run.js";
   app.appendChild(script);
