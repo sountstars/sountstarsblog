@@ -15,8 +15,8 @@ export default () => {
 //     })();
 //   }, 1000);
 
-let app = document && document.getElementById('app')
-let script = document && document.createElement("script");
+let app = !!document && document.getElementById('app')
+let script = !!document && document.createElement("script");
 script.type = "text/javascript";
 script.src = "https://cdn.jsdelivr.net/gh/hzfvictory/cdn@master/water-mark/index.js";
 app.appendChild(script);
