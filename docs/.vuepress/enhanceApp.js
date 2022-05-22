@@ -3,13 +3,15 @@ export default () => {
   let app = document.getElementById("app");
   let script = document.createElement("script");
   script.type = "text/javascript";
-  console.log(' water-mark')
+  console.log(" water-mark");
   script.src =
     "https://cdn.jsdelivr.net/gh/sountstars/watermark@master/dist/run.js";
   app.appendChild(script);
   setTimeout(() => {
     (() => {
-      window.canvansWatermark('aurora bolg',null, {left: '10px'});
+      let waterMark = window?.canvansWatermark || function () {};
+      delete window.waterMark;
+      waterMark("aurora bolg", null, { left: "10px" });
     })();
   }, 1000);
 };
