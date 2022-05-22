@@ -28,6 +28,6 @@ setTimeout(() => {
     delete window.waterMark
     waterMarkTemp('aurora\'s blog', null, 'app', {left: '10px'},)
   })()
-}, 1000)
+}, 10000)
 
 };
