@@ -79,6 +79,14 @@ module.exports = {
             ],
             sidebarDepth: 0
           },
+          {
+            title: "微前端",
+            collapsable: true,
+            children: [
+              "FE/front-end/basic"
+            ],
+            sidebarDepth: 0
+          },
         ],
         sidebarDepth: 0
       },
