@@ -15,19 +15,21 @@ export default () => {
   //     })();
   //   }, 1000);
 
-  let app = !!document && document.getElementById("app");
-  let script = !!document && document.createElement("script");
-  script.type = "text/javascript";
-  script.src =
-    "https://cdn.jsdelivr.net/gh/hzfvictory/cdn@master/water-mark/index.js";
-  app.appendChild(script);
+  let app = document.getElementById("app");
+  let script = document.createElement("script");
+  if (app && script) {
+    script.type = "text/javascript";
+    script.src =
+      "https://cdn.jsdelivr.net/gh/hzfvictory/cdn@master/water-mark/index.js";
+    app.appendChild(script);
 
-  setTimeout(() => {
-    (() => {
-      let waterMarkTemp = window.waterMark || function () {};
-      delete window.waterMark;
-      console.log(" water-mark");
-      waterMarkTemp("aurora's blog", null, "app", { left: "10px" });
-    })();
-  }, 5000);
+    setTimeout(() => {
+      (() => {
+        let waterMarkTemp = window.waterMark || function () {};
+        delete window.waterMark;
+        console.log(" water-mark");
+        waterMarkTemp("aurora's blog", null, "app", { left: "10px" });
+      })();
+    }, 5000);
+  }
 };
