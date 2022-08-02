@@ -17,7 +17,7 @@
 
 `v-for()`  
 vue 可以遍历数组、对象、数组、字符串
-```vue
+```js
 <li v-for="(item, key) of items" :key="key">
 <li v-for="(item, key) in items" :key="key">
 <li v-for="count in 10" :key="count">{{count}}</li>
@@ -33,7 +33,8 @@ vue 可以遍历数组、对象、数组、字符串
 |.once|事件只会执行一次，执行完后会被移除|
 |.self|自身的事件触发时才执行事件函数|
 |.passive|事件完成才会触发 例如：@scroll.passive="onScroll"|
-```vue
+
+```js
 <!-- 修饰符可以串联 -->
 <a v-on:click.stop.prevent="doThat"></a>
 // 使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。
@@ -121,7 +122,7 @@ vue 可以遍历数组、对象、数组、字符串
 
 ### 全局组件
 在main.js里面注册下，就可以全局直接用了
-```vue
+```js
 import CompA from "./components/CompA"
 Vue.component("com-a", CompA);
 ```
@@ -132,7 +133,7 @@ Vue.component("com-a", CompA);
 
 + 过滤器可以连续使用，后面的过滤器的参数，是上一个过滤器的处理结果，数据会展示成最后一个过滤器的结果
 + 过滤器可以传参，参数是传给第二个形参的，第一个参数是`管道符前面的值
-```vue
+```js
 {{item.price | toRMB | toFixed(3)}}
 
 data: {
@@ -159,7 +160,7 @@ filters: { // 写在filters里面的过滤器是局部过滤器
 
 ### 全局过滤器 
 `Vue.filter(过滤器名, callback)` 这种过滤器在任何地方都能使用
-```vue
+```js
 // main.js
 Vue.filter('toRMB', function(val) {
     return  return val * 6.832423
