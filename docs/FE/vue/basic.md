@@ -54,8 +54,8 @@ vue 可以遍历数组、对象、数组、字符串
 |.left|左|
 
 
-##class与style如何动态绑定
-```vue
+## class与style如何动态绑定
+```js
 <div id="box">
     <p :class="{ active: isActive, 'text-danger': hasError }"></p>
     <p v-bind:class="[isActive ? activeClass : '', errorClass]"></p>
@@ -108,7 +108,7 @@ vue 可以遍历数组、对象、数组、字符串
 ## 组件components
 ### 局部组件
 直接import导入在components里面注册下就能用了
-```vue
+```js
 <script>
     import compB from './components/CompA'
     export default {
@@ -169,7 +169,7 @@ Vue.filter('toRMB', function(val) {
 ```
 
 ## 自定义全局方法
-```vue
+```js
 // mian.js
 //  全局的方法
 Vue.prototype.$fetch = function (url) {
@@ -240,7 +240,7 @@ Vue.mixin(mixin);
 ```
 
 ### VUE自定义指令
-```vue
+```js
 Vue.directive('focus',{
     bind() {
       // 当指令绑定到 HTML 元素上时触发.**只调用一次**
