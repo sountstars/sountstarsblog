@@ -18,6 +18,11 @@ componentDidMount()
 可以在这里使用refs，获取真实dom元素
 ```
 
+<!-- getDerivedStateFromProps -->
+<!-- 当外部多个属性在很短的时间间隔之内多次变化，就会导致componentWillReceiveProps被多次调用。这个调用并不会被合并，如果这次内容都会触发异步请求，那么可能会导致多个异步请求阻塞。
+ -->
+
+
 ## 更新阶段
 +  setState引起的state更新或父组件重新render引起的props更新
 +  更新后的state和props相对之前无论是否有变化，都将引起子组件的重新render

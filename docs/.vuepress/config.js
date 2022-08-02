@@ -59,7 +59,7 @@ module.exports = {
               "FE/react/react_fiber",
               "FE/react/virtual_dom",
               "FE/react/react_event",
-              "FE/react/sound_code",
+              // "FE/react/sound_code",
             ],
             sidebarDepth: 0
           },
