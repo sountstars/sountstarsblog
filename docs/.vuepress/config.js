@@ -84,7 +84,8 @@ module.exports = {
             title: "微前端",
             collapsable: true,
             children: [
-              "FE/front-end/basic"
+              "FE/front-end/basic",
+              "FE/front-end/problem"
             ],
             sidebarDepth: 0
           },
