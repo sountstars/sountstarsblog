@@ -52,3 +52,6 @@ location / {
 + 低版本的 vue-router 在 pushState 的时候，会覆盖丢失主路由的 history.state，导致主路由跳转异常
 + 修改子路由的 vue-router ，在 pushState 的时候，把当前的 history.state 传递回去
 [参考](https://github.com/umijs/qiankun/issues/1361)
+
+## 复用公用依赖
+[参考](https://github.com/umijs/qiankun/issues/627)
