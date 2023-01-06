@@ -53,5 +53,8 @@ location / {
 + 修改子路由的 vue-router ，在 pushState 的时候，把当前的 history.state 传递回去
 [参考](https://github.com/umijs/qiankun/issues/1361)
 
+## 子项目要支持https
++ `子项目要支持https访问`
+
 ## 复用公用依赖
 [参考](https://github.com/umijs/qiankun/issues/627)
