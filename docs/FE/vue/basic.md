@@ -318,7 +318,7 @@ export const toggle = {
 ```
 
 ```js
-template>
+<template>
   <div>
      <h1 @click="changeState">mixins</h1>
      <h2 v-if="show">toast</h2>
