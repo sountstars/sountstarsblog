@@ -808,8 +808,416 @@ export default {
 
 ## 生命周期\*\*
 
-| 生命周期     | 描述                                                                  |
-| ------------ | --------------------------------------------------------------------- | --- |
-| beforeCreate | 组件实例被创建之初，组件的属性生效之前                                |
-| created      | 组件实例已经完全创建，属性也绑定，但真实 dom 还没有生成，$el 还不可用 |     |
-| beforeMount  | 在挂载开始之前被调用：相关的 render 函数首次被调用                    |
+| 生命周期      | 描述                                                                  |
+| ------------- | --------------------------------------------------------------------- | --- |
+| beforeCreate  | 组件实例被创建之初，组件的属性生效之前                                |
+| created       | 组件实例已经完全创建，属性也绑定，但真实 dom 还没有生成，$el 还不可用 |     |
+| beforeMount   | 在挂载开始之前被调用：相关的 render 函数首次被调用                    |
+| mounted       | el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子             |
+| beforeUpdate  | 组件数据更新之前调用，发生在虚拟 DOM 打补丁之前                       |
+| update        | 组件数据更新之后                                                      |
+| activated     | keep-alive 专属，组件被激活时调用                                     |
+| deactivated   | keep-alive 专属，组件被销毁时调用                                     |
+| beforeDestroy | 组件销毁前调用                                                        |
+| destoryed     | 组件销毁后调用                                                        |
+
+## 路由使用
+
+```js
+{
+    path: "/",
+    redirect: "/accountSum",
+  },
+  {
+    path: '/mic/*',
+    name: 'mic',
+    component: {
+      render: (h) => h('router-view'),// 渲染到 	<router-view></router-view> 中
+    },
+  },
+  {
+    path: "/accountDetails/id:?",
+    component: () => import('../components/AccountDetails.vue'),
+    meta: {keepAlive: true,}
+  },
+  {
+    path: "*",
+    redirect: "/accountSum",
+  },
+
+export default new Router({
+  mode: "history",// 默认是hash模式
+  routes,
+  // linkActiveClass: "active"
+})
+```
+
+### 路由的方法
+
+```js
+this.$router.back(); // 回退
+this.$router.go(n);
+
+this.$router.replace();
+this.$router.push(`/permission/role-detail/${val}`); // 跳转到当前role-detail页面
+
+const { name, meta, path, params, fullPath, query, hash } = this.$route; // 获取值
+```
+
+### 全局守卫
+
+```js
+// main.js 入口文件
+import router from "./router"; // 引入路由
+router.beforeEach((to, from, next) => {
+  next();
+});
+router.beforeResolve((to, from, next) => {
+  next();
+});
+router.afterEach((to, from) => {
+  console.log("afterEach 全局后置钩子");
+});
+```
+
+### 路由独享守卫
+
+```js
+const router = new VueRouter({
+  routes: [
+    {
+      path: workspace,
+      component: Foo,
+      beforeEnter: (to, from, next) => {
+        // 参数用法什么的都一样,调用顺序在全局前置守卫后面，所以不会被全局守卫覆盖
+      },
+    },
+  ],
+});
+```
+
+### router-link-exact-active 和 router-link-active
+
+**router-link-exact-active**
+当路由到哪里时，该类名就添加到对应的路由标签上
+**router-link-active**
+子级选中后，父级也会跟着选中
+
+## AJAX 数据调取
+
+可以在钩子函数 `created、beforeMount、mounted` 中进行调用，因为在这三个钩子函数中，data 已经创建， 可以将服务端端返回的数据进行赋值。推荐在 `created`钩子函数中调用异步请求，因为在 `created` 钩子函数中调用异步请求有以下优点
+
+- 能更快获取到服务端数据，减少页面 loading 时间；
+- ssr 不支持 beforeMount 、mounted 钩子函数，所以放在 created 中有助于一致性；
+
+```js
+export default {
+  data() {
+    return {
+      commitList: [],
+      show: true,
+    };
+  },
+  methods: {
+    async queryCommit() {
+      this.show = true;
+      this.commitList = await fetch(`https://api.xxxx.cn`, {
+        method: "GET",
+        headers: {
+          Authorization: "token xxxx",
+        },
+      }).then((response) => {
+        if (response.ok) {
+          this.show = false;
+          return response.json();
+        }
+        throw new Error("接口调取失败！");
+      });
+    },
+  },
+  created() {
+    this.queryCommit();
+  },
+};
+```
+
+## 语法示例\*
+
+```js
+<div id="app">
+    <!-- 小胡子语法 -->
+    {{ msg }}
+
+    <!-- v-on事件绑定，可简写为 @ -->
+    <p>{{ msg }}</p>
+    <button v-on="reverseMsg">点击翻转</button>
+
+    <!-- v-bind数据动态绑定，可简写为 : -->
+    <span v-bind:message="msgTime">创建时间</span>
+
+    <!-- v-if/v-else/v-show控制元素出现（v-if和v-else直接操作的DOM；v-show控制的是style） -->
+    <p v-if="seen">Now you see this</p>
+    <p v-else>Now you see that</p>
+    <p v-show="seen">This is v-show's content</p>
+
+    <!-- v-for列表渲染，可渲染对象、数组、字符串、数字，生成谁就v-for谁，v-for之后一定要写:key属性 -->
+    <ul>
+        <li v-for="(item, index) in toDoList" :key="item.id">
+            {{ index }}
+        </li>
+    </ul>
+
+    <!-- v-text/v-html将属性绑定到DOM元素中，text不识别标签，html识别 -->
+    <div v-text="title"></div>
+    <div v-html="title"></div>
+
+    <!-- v-model双向数据绑定，注意只能绑定表单元素 -->
+    <div>{{ phone }}</div>
+    <div>
+        <input type="text" v-model="phone"/>
+    </div>
+</div>
+
+<script>
+new Vue({
+    // 绑定根DOM元素节点，在此元素节点下的操作都可以被vue识别
+    el : '#app',
+    // 储存
+    data : {
+        msg : 'Hello World',
+        msgTime : new Date().toLocaleString(),
+        seen : true,
+        toDoList : [
+            {item : sleep},
+            {item : eat}
+        ],
+        title : '<h2>这是个title</h2>',
+        phone : '231231231'
+    },
+    // 方法
+    methods : {
+        reverseMsg () {
+            this.msg = this.msg.split('').reverse().join('')
+        }
+    },
+    // 用于处理数据，但是不会改变原数据的数据处理方式，一般用来格式化数据（文本数据格式化）
+    filters: {
+
+    },
+    // 侦听器属性，是一个对象；键是需要观察的表达式，值是对应的回调函数；当被观察的表达式的值发生变化之后，会用对应的回调函数完成相应的监视操作
+    watch: {
+
+    },
+    // 计算属性，基于依赖进行缓存，只有当缓存发生改变时才会重新求值；不要放入过多的逻辑，不能与data中的属性重名，否则会报错
+    computed: {
+
+    },
+    // 挂载局部组件，只能当前使用
+    components: {
+        // 一个字符串模板作为 Vue 实例的标识使用
+        template: ``,
+        // 创建props及其传递过来的属性
+        props: []
+    }
+    // 生命周期的钩子函数 - 一个组件从开始到毁灭的过程
+    beforeCreate () {}, // 初始化实例后，数据观测前
+    created () // 在这儿可以调用methods中的方法、改变data数据；常用来发送请求，获取数据
+        axios.get/post/all() // axios获取ajax的数据
+    },
+    beforeMount () {}, // 挂载开始之前
+    mounted () {}, // 已挂载，可以获取、操作el的DOM元素
+    beforeUpdate () {}, // 数据更新时，获取的数据是更新之后的，但页面中的DOM元素是更新之前的
+    updated () {}, // DOM已更新，可以执行依赖DOM的操作
+    beforeDestroy () {}, // 实例销毁之前，此时所有方法都可调用，常用来执行清理任务
+    destroyed () {}, // 实例销毁之后，所有事件、子实例都会销毁
+});
+vm.$set(vm.toDoList, item, play) // 向data中新增属性需要使用$set方法
+</script>
+```
+
+## Vuex
+
+Vuex 是一个专为 Vue 应用程序开发的状态管理模式。每一个 Vuex 应用的核心就是 store,就是一个容器，它包含着你的应用中大部分的状态 state
+**主要包括以下几个模块：**
+
+- **State：**定义了应用状态的数据结构，可以在这里设置默认的初始状态。
+- **Getter：**允许组件从 Store 中获取数据，mapGetters 辅助函数仅仅是将 store 中的 getter 映射到局部计算属性
+- **Mutation：**是唯一更改 store 中状态的方法，且必须是同步函数，`相当于rudex的reducer`
+- **Action：**用于提交 mutation，而不是直接变更状态，可以包含任意异步操作，`相当于rudex的action`
+- **Module：**允许将单一的 Store 拆分为多个 store 且同时保存在单一的状态树中
+
+### 项目结构
+
+```js
+├── main.js
+├── api
+│   └── ... // API请求
+├── components
+│   ├── App.vue
+│   └── ...
+└── store
+    ├── index.js          # 我们组装模块并导出 store 的地方
+    ├── actions.js        # 根级别的 action
+    ├── mutations.js      # 根级别的 mutation
+    └── modules
+        └── test.js       # 测试demo
+```
+
+### vuex 配置
+
+```js
+// modules/test.js
+const test = {
+  namespaced: true,
+  state: {
+    // state就是数据，如果数据定义在state中组件中如果要使用这个数据：默认是this.$store.state.属性名 的方式获取
+    count: 15,
+  },
+  mutations: {
+    // state 中的数据不能被直接修改，如果要修改这些数据，需要使用mutation，注意mutation中不能使用异步更新state
+    // 组件中使用this.$store.commit('add')更新
+    add(state, payload) {
+      console.log(payload);
+      state.count++;
+    },
+  },
+  actions: {
+    // action可以使用异步，但是更新数据仍然需要 commit 对应的mutation
+    // 组件中使用this.$store.dispatch('syncAdd')更新
+    syncAdd(context) {
+      setTimeout(() => {
+        context.commit("add", 11);
+      }, 1000);
+    },
+    async asyncAdd(context, val) {
+      await console.log(val);
+      context.commit("add");
+    },
+  },
+  getters: {
+    // 跟在外面单独声明是一样的
+    getCount(state) {
+      // this.$store.getters.getCount
+      return state.count;
+    },
+  },
+};
+export default test;
+```
+
+namespaced 为 true 的作用是告诉 vuex，该模块所有的 state 、getters、mutations、actions 里面的东西调用时都需要加上命名空间，这个命名空间就是该模块被 improt 时命名的名字。
+
+```js
+// getters.js
+const getters = {
+  // this.$store.getters.count
+  count: (state) => state.test.count,
+};
+export default getters;
+```
+
+```js
+// index.js
+import Vue from "vue";
+import Vuex from "vuex";
+import getters from "./getters";
+
+const path = require("path");
+
+Vue.use(Vuex);
+
+// 通过node的 require.context，获取所有的的文件目录,不需要每次显式的调用import导入模块
+const files = require.context("./modules", false, /\.js$/);
+
+let modules = {};
+
+files.keys().forEach((key) => {
+  let name = path.basename(key, ".js"); // 当前文件的名字，没有后缀
+  modules[name] = files(key).default || files(key);
+});
+
+const debug = process.env.NODE_ENV !== "production";
+
+const store = new Vuex.Store({
+  modules,
+  getters, // 这里也可以写在modules里面
+  strict: debug,
+  plugins: [
+    // 这个数组里面是函数
+    (...state) => {
+      console.log(state);
+    },
+  ],
+});
+
+export default store;
+```
+
+```js
+// main.js
+import store from "./store";
+new Vue({
+  router,
+  store, // 这里导入就可以this.$store使用了
+  render: (h) => h(App),
+}).$mount("#app");
+```
+
+### 组件中使用
+
+```js
+<template>
+    <h1 @click="changeCount">Vuex</h1>
+    <h2>{{num}}</h2>
+    <h2>{{count}}</h2>
+</template>
+
+<script>
+import {mapMutations, mapState, mapActions, mapGetters} from 'vuex'
+export default {
+  name: 'test',
+  data(){
+    return {
+    //  num: this.$store.state.test.count  //这里获取只会加载一次，不能动态响应
+    }
+  },
+  created() {
+      // console.log(`%c store`, `color:#42b983`, this.$store.state.test.count);
+      // console.log(`%c store`, `color:#42b983`, this.$store.getters.count);
+      console.log(`%c store`, `color:#42b983`, this.$store);
+  },
+  methods: {
+    changeCount() {
+      // this.$store.commit('add'); // 在不使用辅助函数，默认是这么用的  对应的是mutations
+      // this.$store.dispatch('syncAdd'); // 对应的是actions
+      this.add();  // 这里是使用辅助函数之后的用法
+      this.syncAdd()
+    },
+    ...mapMutations(['add']),
+    ...mapActions({
+        syncAdd: 'syncAdd' // 可重命名
+    })
+  },
+  computed: {
+      // vuex 的数据建议在这里面声明，可保持页面的整洁
+      // count() {
+      //     return this.$store.state.test.count
+      // },
+      ...mapGetters(['count']), // 跟上面的一致
+      ...mapState({  // 直接砸容器内部获取值
+          num: state => state.test.count  // 如果外面有num的字段，外面的优先级高
+      })
+  }
+}
+</script>
+```
+
+如果有 namespaced 命名空间、如果使用辅助函数 `...mapGetters()`
+
+```js
+...mapGetters({
+  zoom : 'map/zoom'
+})
+
+...mapGetters('map',['zoom'])
+```
