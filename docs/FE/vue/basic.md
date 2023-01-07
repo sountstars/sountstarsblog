@@ -1,22 +1,24 @@
-# vue基本用法
+# vue 基本用法
 
 [[TOC]]
 
 ## 常用指令
-| 常用指令 | 描述 |
-| -- | -- |
-| v-model | 双向数据绑定 把表单元素的value和data中的属性绑定到一起，表单的value发生变化，data的属性也会跟着变化【v-model.number // 直接转换成数字】 |
-| v-text | 把data（不只是data）中的属性值绑定到DOM元素中，会覆盖元素中原有的内容；并且不能识别字符串中的html标签 | 
-| v-html | 把data（不只是data）中的属性值绑定到DOM元素中；并且可以识别字符串中的html标签| 
-| v-if / v-else | 如果v-if绑定的值为true，就显示对应的元素；如果为false，显示v-else对应的元素；注意：v-else不是必选项，但必须结合v-if使用，而v-if可以单独使用 |
-| v-show | 如果值为true，对应的元素就会展示，如果为false，则隐藏； |
-| v-bind | 绑定动态属性，动态绑定后就可以使用data中的该属性的值；v-bind可以简写为 :| 
-| v-for	 | 列表渲染 |
-| v-on | 事件绑定，可简写为@ |
-| is | 配合`<component>`可动态控制展示那个组件，也可以摆脱html模板的限制 |	
+
+| 常用指令      | 描述                                                                                                                                                   |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| v-model       | 双向数据绑定 把表单元素的 value 和 data 中的属性绑定到一起，表单的 value 发生变化，data 的属性也会跟着变化【v-model.number // 直接转换成数字】         |
+| v-text        | 把 data（不只是 data）中的属性值绑定到 DOM 元素中，会覆盖元素中原有的内容；并且不能识别字符串中的 html 标签                                            |
+| v-html        | 把 data（不只是 data）中的属性值绑定到 DOM 元素中；并且可以识别字符串中的 html 标签                                                                    |
+| v-if / v-else | 如果 v-if 绑定的值为 true，就显示对应的元素；如果为 false，显示 v-else 对应的元素；注意：v-else 不是必选项，但必须结合 v-if 使用，而 v-if 可以单独使用 |
+| v-show        | 如果值为 true，对应的元素就会展示，如果为 false，则隐藏；                                                                                              |
+| v-bind        | 绑定动态属性，动态绑定后就可以使用 data 中的该属性的值；v-bind 可以简写为 :                                                                            |
+| v-for         | 列表渲染                                                                                                                                               |
+| v-on          | 事件绑定，可简写为@                                                                                                                                    |
+| is            | 配合`<component>`可动态控制展示那个组件，也可以摆脱 html 模板的限制                                                                                    |
 
 `v-for()`  
 vue 可以遍历数组、对象、数组、字符串
+
 ```js
 <li v-for="(item, key) of items" :key="key">
 <li v-for="(item, key) in items" :key="key">
@@ -25,37 +27,37 @@ vue 可以遍历数组、对象、数组、字符串
 // 字符串等等的遍历，默认再js中，对象不能用for of 遍历，但是vue的合成方法中是允许的【Object.keys()】。
 ```
 
-|事件修饰符|描述|
-| -- | -- |
-|.prevent|阻止元素的默认行为|
-|.stop|阻止事件冒泡|
-|.capture|事件在捕获阶段触发|
-|.once|事件只会执行一次，执行完后会被移除|
-|.self|自身的事件触发时才执行事件函数|
-|.passive|事件完成才会触发 例如：@scroll.passive="onScroll"|
+| 事件修饰符 | 描述                                              |
+| ---------- | ------------------------------------------------- |
+| .prevent   | 阻止元素的默认行为                                |
+| .stop      | 阻止事件冒泡                                      |
+| .capture   | 事件在捕获阶段触发                                |
+| .once      | 事件只会执行一次，执行完后会被移除                |
+| .self      | 自身的事件触发时才执行事件函数                    |
+| .passive   | 事件完成才会触发 例如：@scroll.passive="onScroll" |
 
 ```js
- 修饰符可以串联 
+ 修饰符可以串联
 <a v-on:click.stop.prevent="doThat"></a>
 使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。
 因此，用 v-on:click.prevent.self 会阻止所有的点击，而 v-on:click.self.prevent 只会阻止对元素自身的点击。
 ```
 
-|键盘事件|描述|
-| -- | -- |
-|@keydown/@keyup|修饰符：指定按下哪个按键时/松开时才触发事件函数|
-|.enter|回车|
-|.esc|esc键|
-|.delete|删除/退格|
-|.space|空格|
-|.tab|tab键|
-|.up|上|
-|.right|右|
-|.down|下|
-|.left|左|
+| 键盘事件        | 描述                                            |
+| --------------- | ----------------------------------------------- |
+| @keydown/@keyup | 修饰符：指定按下哪个按键时/松开时才触发事件函数 |
+| .enter          | 回车                                            |
+| .esc            | esc 键                                          |
+| .delete         | 删除/退格                                       |
+| .space          | 空格                                            |
+| .tab            | tab 键                                          |
+| .up             | 上                                              |
+| .right          | 右                                              |
+| .down           | 下                                              |
+| .left           | 左                                              |
 
+## class 与 style 如何动态绑定
 
-## class与style如何动态绑定
 ```js
 <div id="box">
     <p :class="{ active: isActive, 'text-danger': hasError }"></p>
@@ -89,26 +91,20 @@ vue 可以遍历数组、对象、数组、字符串
 </script>
 ```
 
-## props类型
+## props 类型
+
 ```vue
- props: {
-  title: {
-        type: [String, Number],
-        default: '标题',
-        required: true,
-    },
-    // 自定义验证函数
-    propF: {
-      validator: function (value) {
-        return ['success', 'warning', 'danger'].indexOf(value) !== -1
-      }
-    }
-}
+props: { title: { type: [String, Number], default: '标题', required: true, }, //
+自定义验证函数 propF: { validator: function (value) { return ['success',
+'warning', 'danger'].indexOf(value) !== -1 } } }
 ```
 
-## 组件components
+## 组件 components
+
 ### 局部组件
-直接import导入在components里面注册下就能用了
+
+直接 import 导入在 components 里面注册下就能用了
+
 ```js
 <script>
     import compB from './components/CompA'
@@ -121,18 +117,23 @@ vue 可以遍历数组、对象、数组、字符串
 ```
 
 ### 全局组件
-在main.js里面注册下，就可以全局直接用了
+
+在 main.js 里面注册下，就可以全局直接用了
+
 ```js
-import CompA from "./components/CompA"
+import CompA from "./components/CompA";
 Vue.component("com-a", CompA);
 ```
 
-## 过滤器filter **
-### 局部过滤器
-在Vue实例中的`filters`内的过滤器是局部过滤器；只能在当前组件可以使用 
+## 过滤器 filter \*\*
 
-+ 过滤器可以连续使用，后面的过滤器的参数，是上一个过滤器的处理结果，数据会展示成最后一个过滤器的结果
-+ 过滤器可以传参，参数是传给第二个形参的，第一个参数是`管道符前面的值
+### 局部过滤器
+
+在 Vue 实例中的`filters`内的过滤器是局部过滤器；只能在当前组件可以使用
+
+- 过滤器可以连续使用，后面的过滤器的参数，是上一个过滤器的处理结果，数据会展示成最后一个过滤器的结果
+- 过滤器可以传参，参数是传给第二个形参的，第一个参数是`管道符前面的值
+
 ```js
 {{item.price | toRMB | toFixed(3)}}
 
@@ -158,8 +159,10 @@ filters: { // 写在filters里面的过滤器是局部过滤器
 }
 ```
 
-### 全局过滤器 
+### 全局过滤器
+
 `Vue.filter(过滤器名, callback)` 这种过滤器在任何地方都能使用
+
 ```js
 // main.js
 Vue.filter('toRMB', function(val) {
@@ -170,6 +173,7 @@ Vue.filter('toRMB', function(val) {
 ```
 
 ## 自定义全局方法
+
 ```js
 // mian.js
 //  全局的方法
@@ -240,36 +244,37 @@ Vue.component("counter", About);
 Vue.mixin(mixin);
 ```
 
-### VUE自定义指令
+### VUE 自定义指令
+
 ```js
-Vue.directive('focus',{
-    bind() {
-      // 当指令绑定到 HTML 元素上时触发.**只调用一次**
-      console.log('bind triggerd')
-    },
-    inserted: (el, binding, vnode) => {
-      // 当绑定了指令的这个HTML元素插入到父元素上时触发(在这里父元素是 `div#app`)**.但不保证,父元素已经插入了 DOM 文档.**
-      console.log(el, '当前的dom');
-      console.log(binding, '指令信息集');
-      console.log(vnode, 'dom信息');
-      console.log('inserted triggerd')
-    },
-    updated() {
-      // 所在组件的`VNode`更新时调用.
-      console.log('updated triggerd')
-    },
-    componentUpdated() {
-      // 指令所在组件的 VNode 及其子 VNode 全部更新后调用。
-      console.log('componentUpdated triggerd')
-      
-    },
-    unbind() {
-      // 只调用一次，指令与元素解绑时调用.
-      console.log('unbind triggerd')
-    }
-})
+Vue.directive("focus", {
+  bind() {
+    // 当指令绑定到 HTML 元素上时触发.**只调用一次**
+    console.log("bind triggerd");
+  },
+  inserted: (el, binding, vnode) => {
+    // 当绑定了指令的这个HTML元素插入到父元素上时触发(在这里父元素是 `div#app`)**.但不保证,父元素已经插入了 DOM 文档.**
+    console.log(el, "当前的dom");
+    console.log(binding, "指令信息集");
+    console.log(vnode, "dom信息");
+    console.log("inserted triggerd");
+  },
+  updated() {
+    // 所在组件的`VNode`更新时调用.
+    console.log("updated triggerd");
+  },
+  componentUpdated() {
+    // 指令所在组件的 VNode 及其子 VNode 全部更新后调用。
+    console.log("componentUpdated triggerd");
+  },
+  unbind() {
+    // 只调用一次，指令与元素解绑时调用.
+    console.log("unbind triggerd");
+  },
+});
 ```
-<!-- 
+
+<!--
 **钩子函数参数**
 
 指令钩子函数会被传入以下参数：
@@ -277,40 +282,41 @@ Vue.directive('focus',{
 + `binding `：一个对象，包含以下属性：
     - `name`：指令名，不包括 v- 前缀。 -->
 
-
 ### mixins
 
 两个非常相似的组件，它们的功能极其相似，但它们局部稍有不同，现在你的做法是将它们分成两个不同的组件？还是只保留一个组件，局部差异的部分采用`props`控制呢？
 
-如果将它们拆分为两个不同的组件，这时功能发生变化，那么必须在两个地方修改它们，如果用props来区分它们，那么后期维护起来将会很复杂，可能减慢你开发的速度
+如果将它们拆分为两个不同的组件，这时功能发生变化，那么必须在两个地方修改它们，如果用 props 来区分它们，那么后期维护起来将会很复杂，可能减慢你开发的速度
 
-Vue中的`Mixins`基本上是一块定义的逻辑，由Vue以特定的规定方式存储，可以反复使用，为Vue实例和组件添加功能。因此，`Vue mixins`可以在多个Vue组件之间共享，而无需重复代码块。使用过SASS的CSS预处理器的人对mixin应该有很好的了解。
+Vue 中的`Mixins`基本上是一块定义的逻辑，由 Vue 以特定的规定方式存储，可以反复使用，为 Vue 实例和组件添加功能。因此，`Vue mixins`可以在多个 Vue 组件之间共享，而无需重复代码块。使用过 SASS 的 CSS 预处理器的人对 mixin 应该有很好的了解。
 
-组件内部有跟mixins里面一样的方法时，组件内部的优先级高与mixins
+组件内部有跟 mixins 里面一样的方法时，组件内部的优先级高与 mixins
 
-#### 局部mixins
+#### 局部 mixins
+
 ```js
 //assets/mixins/mixin.js
 export const toggle = {
   data() {
     return {
-      "show": false
-    }
+      show: false,
+    };
   },
   methods: {
     changeState() {
       this.show = !this.show;
-    }
+    },
   },
   created() {
-      // 默认每次都会执行
-      console.log('created', 'mixins');
+    // 默认每次都会执行
+    console.log("created", "mixins");
   },
   mounted() {
-      console.log('mounted', 'mixins');
-  }
+    console.log("mounted", "mixins");
+  },
 };
 ```
+
 ```js
 template>
   <div>
@@ -324,37 +330,43 @@ import {toggle} from './mixins/toggle'
 
 export default {
   mixins: [toggle]
-  // ... 
+  // ...
   //这里面可以正常写，优先级高于mixin的方法。
 }
 </script>
 ```
 
-#### 全局mixins
+#### 全局 mixins
+
 ```js
 // main.js
 const mixin = {
-    methods: {
-        formatDate(dateTime) {
-            return dateTime
-        }
-    }
+  methods: {
+    formatDate(dateTime) {
+      return dateTime;
+    },
+  },
 };
 Vue.mixin(mixin);
 
 // 组件里面使用
-console.log(this.formatDate(new Date()),'mixins');
+console.log(this.formatDate(new Date()), "mixins");
 ```
+
 注意：请谨慎使用全局混入，因为它会影响每个单独创建的 Vue 实例 (包括第三方组件)。大多数情况下，只应当应用于自定义选项
 
 #### extends 和 mixins 区别
-+ extends 和 mixins 类似，通过暴露一个 extends 对象到组件中使用。
-+ extends 会比 mixins 先执行。执行顺序：extends > mixins > 组件
-+ extends 只能暴露一个 extends 对象，暴露多个 extends 不会执行
+
+- extends 和 mixins 类似，通过暴露一个 extends 对象到组件中使用。
+- extends 会比 mixins 先执行。执行顺序：extends > mixins > 组件
+- extends 只能暴露一个 extends 对象，暴露多个 extends 不会执行
 
 ## vue 组件间通信
+
 ### props/$emit
+
 适用 父子组件通信
+
 ```js
 // 父组件
 <template>
@@ -425,16 +437,379 @@ console.log(this.formatDate(new Date()),'mixins');
 ```
 
 ### $emit/$on
+
 适用于 父子、隔代、兄弟组件通信
-**最近在思考一个问题为什么一定要在created中写this.$on，可以放在mounted中吗?**
-1.如果触发和监听组件在页面上都创建了，并没有进行数据传输，那么可以放在mounted中
-这种情况在实际工作中比较常见，如果在触发的组件实际触发之前，监听组件mouted方法执行了，那么就没有任何问题
+**最近在思考一个问题为什么一定要在 created 中写 this.$on，可以放在 mounted 中吗?** 1.如果触发和监听组件在页面上都创建了，并没有进行数据传输，那么可以放在 mounted 中
+这种情况在实际工作中比较常见，如果在触发的组件实际触发之前，监听组件 mouted 方法执行了，那么就没有任何问题
 
-2.如果触发和监听组件在页面上依次创建，那么要放在created中放在created中最主要的原因是组件的生命周期执行顺序决定的， 下面做一个控制不同子组件显示隐藏的问题，a是现在的组件，b是即将显示的组件，那么执行顺序是b先created，beforeMount, 然后才是a的beforeDestroy,destroyed钩子执行,b的mounted最后执行,针对这种业务你想一下，你在a的beforeDestroy钩子中触发emit， 如果在b的mounted中监听，这时候b的生命周期还没有执行到那一步所以，你的触发是不会生效的，所以更通用的情况是放在created钩子中
+2.如果触发和监听组件在页面上依次创建，那么要放在 created 中放在 created 中最主要的原因是组件的生命周期执行顺序决定的， 下面做一个控制不同子组件显示隐藏的问题，a 是现在的组件，b 是即将显示的组件，那么执行顺序是 b 先 created，beforeMount, 然后才是 a 的 beforeDestroy,destroyed 钩子执行,b 的 mounted 最后执行,针对这种业务你想一下，你在 a 的 beforeDestroy 钩子中触发 emit， 如果在 b 的 mounted 中监听，这时候 b 的生命周期还没有执行到那一步所以，你的触发是不会生效的，所以更通用的情况是放在 created 钩子中
 
-**总结就是 $emit 要放在 $on监听 之后**
+**总结就是 $emit 要放在 $on 监听 之后**
 
+### vuex 、 $refs 、$parent
 
+**provide/inject**
+provide 和 inject 主要为高阶插件/组件库提供用例。与 React 的上下文特性很相似。
 
+provide 和 inject 绑定并不是可响应的。这是刻意为之的。然而，如果你传入了一个可监听的对象，那么其**对象的属性还是可响应的。**
 
+inject/provide 本质还是通过$parent 向上查找祖先节点数据
 
+```js
+export default {
+  name: "u-form",
+  props: {
+    title: String,
+    labelWidth: String,
+    contentWidth: String,
+    okButton: { type: String, default: "确定" },
+    cancelButton: { type: String, default: "取消" },
+  },
+  provide() {
+    return {
+      uForm: this,
+    };
+  },
+};
+```
+
+```js
+export default {
+  name: "u-form-item",
+  props: {
+    label: String,
+    error: String,
+    required: Boolean,
+    tip: String,
+  },
+  data() {
+    return {
+      leftSty: {},
+      rightSty: {},
+    };
+  },
+  inject: ["uForm"],
+  created() {
+    this.uForm.labelWidth && (this.leftSty.width = this.uForm.labelWidth);
+    this.uForm.contentWidth && (this.rightSty.width = this.uForm.contentWidth);
+  },
+};
+```
+
+watch 也可以监听
+
+```js
+// 父
+provide () {
+    return {
+      nameFromParent: this.name,
+      getReaciveNameFromParent: () => this.name
+    }
+  },
+
+ // 子
+inject: ['nameFromParent', 'getReaciveNameFromParent'],
+computed: {
+// 方便使用
+reactiveNameFromParent () {
+  return this.getReaciveNameFromParent()
+}
+},
+watch: {
+// 测试
+'reactiveNameFromParent': function (val) {
+  console.log('来自Parent组件的name值发生了变化', val)
+}
+},
+
+mounted() {
+  const unWatch = this.$watch("reactiveNameFromParent", (promise) => {
+
+    unWatch(); // 仅执行一次
+  });
+},
+```
+
+## defineProperty 的不足
+
+Vue 不允许在已经创建的实例上动态添加新的根级响应式属性 (root-level reactive property)。 然而它可以使用 Vue.set(object, key, value) 方法将响应属性添加到嵌套的对象上：
+
+- 当你利用索引直接设置一个数组项时，例如：`vm.items[indexOfItem] = newValue`
+- 当你修改数组的长度时，例如：`vm.items.length = newLength`
+- 新增对象节点时候 `vm.obj.a = 1`
+
+### 解决的办法
+
+```js
+// Vue.set
+Vue.set(vm.items, indexOfItem, newValue);
+// vm.$set，Vue.set的一个别名,当前组件的实例
+vm.$set(vm.items, indexOfItem, newValue);
+// Array.prototype.splice
+vm.items.splice(indexOfItem, 1, newValue);
+
+// Object
+this.$set(this.obj, "a", 1);
+this.obj = Object.assign({}, this.obj, { a: 1 });
+```
+
+## nextTick()
+
+Vue 的特点之一就是响应式，但数据更新时，DOM 并不会立即更新。当我们有一个业务场景，需要在 DOM 更新之后再执行一段代码时，可以借助 nextTick 实现。
+
+Vue 的 DOM 更新不是同步的，而是异步的，如果我们希望获取更新数据后渲染出来的 DOM， 我们需要使用 **$nextTick；this.$nextTick(callback),** callback 会在 DOM 更新以后执行（如果想要在 DOM 更新后操作 DOM，或者在 DOM 更新后有其他的事情，要用$nextTick）
+
+```js
+<li v-for="(item, index) in ary"
+    :key="item.id"
+    ref="listItem">{{item}}</li>
+
+new Vue({
+    el: '#app',
+    data: {
+        ary: [1, 3, 5]
+    },
+    mounted() {
+        console.log(this.$refs.listItem.length)
+        this.ary.push(7, 9)
+        // console.log(this.$refs.listItem.length) // 为什么还是3，而不是5呢？
+        // 因为Vue更新DOM的机制是异步的；push 7，9后并没有直接就去更新DOM，而是先等同步任务执行完，才去执行异步的更新DOM
+
+        // 如果一定要获取更新数据以后的DOM，要用$nextTick
+        this.$nextTick(() => {
+            // $nextTick 会把回调函数放到DOM更新以后执行
+            console.log(this.$refs.listItem.length)
+        })
+    }
+});
+```
+
+## computed & watch \*\*
+
+**computed 计算属性**
+
+1. 页面加载时就求值；支持缓存，如果依赖的数据发生改变，才会重新计算
+2. 不支持异步
+3. 如果一个属性是由其他属性计算而来，这个属性依赖其他属性，依赖发生变化时自动求取最新的计算结果
+
+**watch 观察属性**
+
+1. 页面加载时不求值，依赖值发生改变时才求值
+2. watch 支持异步
+3. watch 只能监听一个属性的变化，如果有属性依赖这个结果，那么需要手动去重新计算这个结果；
+
+```js
+<div id="app">
+  <input type="text" v-model="firstName" />
+  <input type="text" v-model="lastName" />
+  {{fullName}}
+</div>
+
+<script>
+new Vue({
+    el: '#app',
+    data: {
+      firstName: '',
+      lastName: '',
+      fullName: '',
+      obj:{  }
+    },
+    computed: {
+      fullName () {
+        return this.lastName + this.firstName;
+      }
+    },
+    watch: {
+      firstName(newVal, oldVal) {
+        this.fullName = this.lastName + newVal;
+      },
+      lastName(nawVal, oldVal) {
+        this.fullName = newVal + this.firstName;
+      },
+      obj: {
+        handler: 'sayName' , // 这里是字符串
+        immediate: true, // 立即执行
+        // deep: true   // 深度监控
+        }
+    },
+    methods: {
+       sayName() {
+           console.log(this.name)
+       }
+    }
+ });
+</script>
+```
+
+```js
+// 整个对象深度监听的时候  需求可能导致让你忽略某个指定的属性变动侦测，这样就就不能这么用了，如果属性特别多的话，单个拆开监听 费时费力 ， 可以用下面的方法。
+
+// https://cn.vuejs.org/v2/api/#vm-watch
+mounted() {
+  const handler = () => console.log(this.obj);
+  Object.keys(this.obj)
+    .filter(_ => !["name"].includes(_)) // 指定那些属性 不用监听
+    .forEach(_ => {
+    this.$watch(vm => vm.obj[_], handler, {
+      deep: true
+    });
+  });
+}
+```
+
+```js
+computed: {
+  fullName: {
+    // getter  默认只有getter方法
+    get: function () {
+      return this.firstName + ' ' + this.lastName
+    },
+    // setter  我们可以手动添加setter方法，做一些中间处理
+    set: function (newValue) {
+      var names = newValue.split(' ')
+      this.firstName = names[0]
+      this.lastName = names[names.length - 1]
+    }
+  }
+}
+```
+
+## 使用 ref
+
+- 首先在要获取的元素添加 ref="标识符"的行内属性
+- 获取的时候 this.$refs.标识符获取元素
+- 如果相同的一个 ref 有一个，获取到的就是带这个 ref 的原生元素对象
+- 如果相同 ref 的有多个，获取到的是所有带有这个 ref 的元素组成的数组
+
+```js
+<p ref="box">{{ msg }}</p>;
+
+this.$refs.box.style.color = "red";
+```
+
+## this.$once() && 钩子事件 hookEvent
+
+this.$once('hook:beforeDestroy',callback)
+**只针对钩子函数**
+清除定时器
+
+```js
+// 可以用这个方式离开页面之前可以清除定时器
+mounted() {
+   // console.log(this.$options.data())
+   console.log(this)
+   this.timer = setInterval(() => {
+     console.log(Date.now())
+   }, 1000)
+
+   this.$once('hook:beforeDestroy', () => {
+     clearInterval(this.timer);
+   })
+ }
+```
+
+监控子组件的生命周期
+
+```js
+// 可以侦查组件的钩子函数
+<List @hook:mounted="listenMounted" />
+```
+
+## vue 如何关掉响应式
+
+**使用 Object.freeze()，这会阻止修改现有的 property，也意味着响应系统无法再追踪变化**
+
+```js
+let obj = {
+  foo: "bar",
+};
+Object.freeze(obj);
+
+new Vue({
+  el: "#app",
+  data: obj,
+});
+```
+
+```js
+<div id="app">
+  <p>{{ foo }}</p>
+  <!-- 这里的 `foo` 不会更新！ -->
+  <button v-on:click="foo = 'baz'">Change it</button>
+</div>
+```
+
+另外 Vue 也为大家提供了一个 只能修改数据一次的方法
+**v-once**
+通过使用 v-once 指令，你也能执行一次性地插值，当数据改变时，插值处的内容不会更新。但请留心这会影响到该节点上的其它数据绑定：
+
+```js
+<span v-once>这个将不会改变: {{ msg }}</span>
+```
+
+## vue 样式穿透
+
+在开发中修改第三方组件样式是很常见，但由于 scoped 属性的样式隔离，可能需要去除 scoped 或是另起一个 style 。这些做法都会带来副作用（组件样式污染、不够优雅），样式穿透在 css 预处理器中使用才生效。
+
+深度作用选择器有`>>>`和别名`/deep/`
+`>>>`基本在纯 css 中使用，类似 Sass，less 的 Css 预编译器一般都用`/deep/`，但是 eslint 可能不被通过，所以可以使用`::v-deep`代替
+
+```js
+::v-deep .el-table thead tr,::v-deep .el-table thead tr th {
+    background: rgba(235, 238, 245, 0.27) !important;
+  }
+```
+
+## 函数式组件
+
+函数式组件是无状态，它无法实例化，没有任何的生命周期和方法。创建函数式组件也很简单，只需要在模板添加 functional 声明即可。一般适合只依赖于外部数据的变化而变化的组件，因其轻量，渲染性能也会有所提高。
+
+```js
+<template functional>
+    <div class="list">
+        <div class="item" v-for="item in props.list" :key="item.id" @click="props.itemClick(item)">
+            <p>{{item.title}}</p>
+            <p>{{item.content}}</p>
+        </div>
+    </div>
+</template>
+```
+
+## css 使用 js 的变量
+
+```js
+<template>
+  <div class="box" :style="styleVar">
+  </div>
+</template>
+<script>
+export default {
+  props: {
+    height: {
+      type: Number,
+      default: 54,
+    },
+  },
+  computed: {
+    styleVar() {
+      return {
+        '--box-height': this.height + 'px'
+      }
+    }
+  },
+}
+</script>
+<style scoped>
+.box {
+  height: var(--box-height);
+}
+</style>
+```
+
+## 生命周期\*\*
+
+| 生命周期     | 描述                                                                  |
+| ------------ | --------------------------------------------------------------------- | --- |
+| beforeCreate | 组件实例被创建之初，组件的属性生效之前                                |
+| created      | 组件实例已经完全创建，属性也绑定，但真实 dom 还没有生成，$el 还不可用 |     |
+| beforeMount  | 在挂载开始之前被调用：相关的 render 函数首次被调用                    |
