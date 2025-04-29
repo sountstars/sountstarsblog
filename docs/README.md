@@ -7,6 +7,6 @@ actionLink: /js/home
 footer: Copyright| 京ICP备20002446号-1
 footerLink: www.baidu.com
 sidebar: auto
-layout: HomeLayout
-details: 北京，已入坑ღ( ´･ᴗ･` )比心
+layout: 
+details: 
 ---
